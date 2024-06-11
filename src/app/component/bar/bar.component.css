@@ -1,0 +1,37 @@
+.top-bar {
+  background-color: transparent;
+  color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.battery, .network {
+  font-size: 14px;
+}
+
+.signal-strength {
+  color: green; /* Adjust color based on signal strength */
+}
+
+.battery i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.network .signal-strength {
+  display: flex;
+  align-items: flex-end; /* Align bars to the bottom */
+}
+
+.signal-bar {
+  width: 5px; /* Adjust the width of each bar */
+  background-color: black; /* Set the color of the bars */
+  margin-right: 2px; /* Add spacing between bars */
+}
+
+
+
+
+
+

@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 * {
   box-sizing: border-box;
 }
@@ -19,6 +21,7 @@ body {
 .container {
   margin: auto;
   height: 100%;
+  padding-bottom: 5%;
 }
 
 h1 {
@@ -26,7 +29,6 @@ h1 {
   margin: 0;
   height: 15vh;
   line-height: 15vh;
-  text-align: center;
   font-size: 6vh;
 }
 

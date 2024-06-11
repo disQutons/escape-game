@@ -1,0 +1,6 @@
+<div class="background">
+  <app-bar></app-bar>
+  <app-clock></app-clock>
+  <app-pattern-lock *ngIf="!patternMatch===true" [onSuccess]="onPatternSuccess"></app-pattern-lock>
+</div>
+

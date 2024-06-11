@@ -1,0 +1,16 @@
+.clock {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 15%;
+}
+
+.time {
+  font-size: 5em;
+  color: black; /* Set the color to white */
+  font-weight: 1;
+}
+
+.date {
+  font-size: 1.5em;
+  color: black; /* Set the color to white */
+}
