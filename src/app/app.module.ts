@@ -8,6 +8,10 @@ import { PatternLockComponent } from './component/pattern-lock/pattern-lock.comp
 import { ClockComponent } from './component/clock/clock.component';
 import { BarComponent } from './component/bar/bar.component';
 import {CommonModule} from "@angular/common";
+import { AppGridComponent } from './component/app-grid/app-grid.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -15,12 +19,16 @@ import {CommonModule} from "@angular/common";
     HomeComponent,
     PatternLockComponent,
     ClockComponent,
-    BarComponent
+    BarComponent,
+    AppGridComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

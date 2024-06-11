@@ -1,4 +1,6 @@
 .background {
+  display: flex;
+  flex-direction: column;
   background-image: url('src/assets/background.jpg');
   background-size: cover;
   background-position: center;

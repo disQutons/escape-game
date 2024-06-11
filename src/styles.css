@@ -34,7 +34,7 @@ h1 {
 
 #lock {
   width: 100%;
-  height: calc(100% - 15vh);
+  height: 50%;
   padding-bottom: 12vh;
   min-height: 120px;
 }
@@ -43,3 +43,6 @@ h1 {
   margin: auto;
   display: block;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
