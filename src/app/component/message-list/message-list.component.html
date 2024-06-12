@@ -1,4 +1,5 @@
 <div class="message-list">
-  <h2>Messages</h2>
+  <app-loading *ngIf="isLoading"></app-loading>
+  <h2 class="messages-header">Messages</h2>
   <app-message-item *ngFor="let message of messages" [message]="message" (click)="selectMessage(message)"></app-message-item>
 </div>

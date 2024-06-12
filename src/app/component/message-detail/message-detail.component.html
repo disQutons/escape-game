@@ -4,8 +4,12 @@
     <h4>{{ selectedMessage?.name }}</h4>
   </div>
   <div class="messages">
-    <div *ngFor="let msg of selectedMessage?.conversation" class="message" [ngClass]="{'sent': msg.sent, 'received': !msg.sent}">
-      <p>{{ msg.text }}</p>
+    <div *ngFor="let msg of selectedMessage?.conversation">
+      <div class="message-date">
+        <p>{{ msg.date | date:'medium' }}</p>
+      </div>
+      <div class="message" [ngClass]="{'sent': msg.sent, 'received': !msg.sent}">
+        <p>{{ msg.text }}</p></div>
     </div>
   </div>
   <div class="message-input">

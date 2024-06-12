@@ -6,5 +6,6 @@ export interface Message {
   conversation: {
     text: string;
     sent: boolean;
+    date: string;
   }[];
 }

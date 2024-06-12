@@ -1,0 +1,11 @@
+.message-list {
+  width: 100%;
+  float: left;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.messages-header{
+  padding: 10px;
+}

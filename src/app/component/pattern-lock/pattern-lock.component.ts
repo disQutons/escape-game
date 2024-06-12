@@ -12,6 +12,18 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
   matchedPattern = 5784;
   isMatched: boolean|null = null;
 
+  audio: HTMLAudioElement;
+
+  constructor() {
+    this.audio = new Audio();
+    this.audio.src = './assets/unlock_sound.wav'; // Relative path to the audio file
+    this.audio.load(); // Preload the audio
+    // Listen for 'error' event
+    this.audio.onerror = (error) => {
+      console.error('Error loading audio:', error);
+    };
+  }
+
 
   ngOnInit(): void {
   }
@@ -25,6 +37,7 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
             me.isMatched = true;
             if (me.onSuccess){
               me.onSuccess()
+              me.playUnlockSound();
               this.success()
             }
           } else {
@@ -35,5 +48,14 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
 
       }
     });
+  }
+  playUnlockSound() {
+    // Check if audio is loaded
+    if (this.audio.readyState >= 2) {
+      // If loaded, play audio
+      this.audio.play();
+    } else {
+      console.warn('Audio is still loading. Please wait.');
+    }
   }
 }

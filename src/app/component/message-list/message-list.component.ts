@@ -10,15 +10,23 @@ import {Router} from "@angular/router";
 })
 export class MessageListComponent implements OnInit {
   messages: Message[] = [];
-  selectedMessage: Message | null = null;
+  isLoading: boolean = true;
 
-  constructor(private route: Router,private messageService: MessageService) { }
+  constructor(private route: Router, private messageService: MessageService) {
+  }
 
   ngOnInit(): void {
-    this.messages = this.messageService.getMessages();
+    this.messageService.getMessages().subscribe({
+      next: (data) => {
+        this.messages = data
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
   }
 
   selectMessage(message: Message): void {
-    this.route.navigate(['/massage-detail', message.id], { state: { data: message } });
+    this.route.navigate(['/massage-detail', message.id], {state: {data: message}});
   }
 }

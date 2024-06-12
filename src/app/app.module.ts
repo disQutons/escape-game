@@ -17,6 +17,7 @@ import { MessageListComponent } from './component/message-list/message-list.comp
 import { MessageDetailComponent } from './component/message-detail/message-detail.component';
 import { MessageItemComponent } from './component/message-item/message-item.component';
 import {FormsModule} from "@angular/forms";
+import { LoadingComponent } from './component/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {FormsModule} from "@angular/forms";
     InstagramComponent,
     MessageListComponent,
     MessageDetailComponent,
-    MessageItemComponent
+    MessageItemComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
