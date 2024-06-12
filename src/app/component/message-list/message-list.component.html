@@ -1,0 +1,4 @@
+<div class="message-list">
+  <h2>Messages</h2>
+  <app-message-item *ngFor="let message of messages" [message]="message" (click)="selectMessage(message)"></app-message-item>
+</div>

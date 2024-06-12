@@ -1,0 +1,15 @@
+<div class="message-detail">
+  <div class="message-header">
+    <img [src]="selectedMessage?.avatar" alt="Avatar" class="avatar">
+    <h4>{{ selectedMessage?.name }}</h4>
+  </div>
+  <div class="messages">
+    <div *ngFor="let msg of selectedMessage?.conversation" class="message" [ngClass]="{'sent': msg.sent, 'received': !msg.sent}">
+      <p>{{ msg.text }}</p>
+    </div>
+  </div>
+  <div class="message-input">
+    <input type="text" placeholder="Type a message" [(ngModel)]="newMessage">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

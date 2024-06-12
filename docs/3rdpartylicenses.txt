@@ -35,6 +35,9 @@ MIT
 @angular/flex-layout
 MIT
 
+@angular/forms
+MIT
+
 @angular/material
 MIT
 The MIT License

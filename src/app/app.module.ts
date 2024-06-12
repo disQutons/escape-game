@@ -12,6 +12,11 @@ import { AppGridComponent } from './component/app-grid/app-grid.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { InstagramComponent } from './pages/instagram/instagram.component';
+import { MessageListComponent } from './component/message-list/message-list.component';
+import { MessageDetailComponent } from './component/message-detail/message-detail.component';
+import { MessageItemComponent } from './component/message-item/message-item.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     PatternLockComponent,
     ClockComponent,
     BarComponent,
-    AppGridComponent
+    AppGridComponent,
+    InstagramComponent,
+    MessageListComponent,
+    MessageDetailComponent,
+    MessageItemComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     CommonModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

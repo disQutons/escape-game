@@ -1,8 +1,8 @@
-<mat-grid-list cols="4" rowHeight="100px" >
+<mat-grid-list cols="4" rowHeight="100px">
   <mat-grid-tile *ngFor="let app of apps" [colspan]="1" [rowspan]="1">
-    <div class="app-container">
-      <img [src]="app.icon" alt="{{app.name}}" class="app-icon">
-      <div class="app-name">{{app.name}}</div>
-    </div>
+      <div class="app-container clickable-div" (click)="openApp(app)">
+        <img [src]="app.icon" alt="{{app.name}}" class="app-icon">
+        <div class="app-name">{{app.name}}</div>
+      </div>
   </mat-grid-tile>
 </mat-grid-list>
