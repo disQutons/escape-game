@@ -1,1 +1,11 @@
-<app-message-list></app-message-list>
+<app-bar></app-bar>
+<div class="container" (swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()">
+  <div class="page" [@slide]="currentPage === 1 ? 'show' : 'hide'">
+    <app-feeds></app-feeds>
+  </div>
+  <div class="page" [@slide2]="currentPage === 2 ? 'show' : 'hide'">
+    <app-message-list></app-message-list>
+  </div>
+</div>
+
+
