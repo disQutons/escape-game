@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-feeds',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./feeds.component.css']
 })
 export class FeedsComponent {
-
+  @Input() onMessageClick!: () => void;
 }

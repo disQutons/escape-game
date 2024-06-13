@@ -23,6 +23,10 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { HammerModule, HammerGestureConfig } from '@angular/platform-browser';
 import { FeedsComponent } from './pages/instagram/feeds/feeds.component';
 import { StoryListComponent } from './pages/instagram/story-list/story-list.component';
+import {LazyLoadImageModule} from "ng-lazyload-image";
+import {MatIconModule} from "@angular/material/icon";
+import { InstagramUpBarComponent } from './pages/instagram/instagram-up-bar/instagram-up-bar.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { StoryListComponent } from './pages/instagram/story-list/story-list.comp
     LoadingComponent,
     StoryCircleComponent,
     FeedsComponent,
-    StoryListComponent
+    StoryListComponent,
+    BarComponent,
+    InstagramUpBarComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,10 @@ import { StoryListComponent } from './pages/instagram/story-list/story-list.comp
     FlexLayoutModule,
     FormsModule,
     NgOptimizedImage,
-    HammerModule
+    HammerModule,
+    LazyLoadImageModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,

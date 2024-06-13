@@ -1,5 +1,5 @@
 <div class="message-item">
-  <img [src]="message?.avatar" alt="Avatar" class="avatar">
+  <app-story-circle class="avatar" [story]="message?.user" [size]="50"></app-story-circle>
   <div class="message-info">
     <h4>{{ message?.name }}</h4>
     <p>{{ message?.lastMessage }}</p>

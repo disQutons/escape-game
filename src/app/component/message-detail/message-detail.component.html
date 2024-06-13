@@ -1,6 +1,6 @@
 <div class="message-detail">
   <div class="message-header">
-    <img [src]="selectedMessage?.avatar" alt="Avatar" class="avatar">
+    <app-story-circle class="avatar" [story]="selectedMessage?.user" [size]="50"></app-story-circle>
     <h4>{{ selectedMessage?.name }}</h4>
   </div>
   <div class="messages">

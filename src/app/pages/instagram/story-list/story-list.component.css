@@ -1,0 +1,13 @@
+.stories-list {
+  display: flex;
+  padding-top: 45px;
+  padding-left: 5px;
+  padding-right: 5px;
+  gap: 5px; /* Adjust the gap between circles */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.stories-list::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar width */
+  background: transparent; /* Optional: Set scrollbar background */
+}

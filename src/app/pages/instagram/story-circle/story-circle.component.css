@@ -1,9 +1,11 @@
+.story{
+  display: flex;
+  flex-direction: column;
+}
 .story-circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
   background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   border-radius: 50%;
   padding: 2px;

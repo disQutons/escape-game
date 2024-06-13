@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import { fromEvent, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instagram',
@@ -30,15 +28,22 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class InstagramComponent {
 
+  currentPage:number = 1;
+
   ngOnInit(): void {
     window.addEventListener('popstate', () => {
       this.onSwipeRight();
     });
   }
-  currentPage = 1;
+
+  onMessageClick: () => void = () => {
+    this.onSwipeLeft()
+  }
 
   onSwipeLeft(): void {
+    console.log(this.currentPage)
     if (this.currentPage === 1) {
+      console.log(this.currentPage)
       history.pushState(null, '');
       this.goToPage(2);
     }

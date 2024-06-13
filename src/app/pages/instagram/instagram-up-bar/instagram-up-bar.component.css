@@ -1,0 +1,38 @@
+.up-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  z-index: 1000; /* Ensures it's above other content */
+}
+
+.instagram-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #333; /* Adjust icon color as needed */
+}
+
+.icon:hover {
+  color: #e95950; /* Change color on hover */
+}
+
+.icon-button{
+  align-content: center;
+}

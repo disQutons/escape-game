@@ -1,5 +1,9 @@
-<div class="story-circle">
-  <div class="story-circle-inner">
-    <img ngSrc="assets/pictures/img_1.png" alt="Story Image" class="story-image" height="512" width="512">
+<div class="story">
+  <div class="story-circle" [ngStyle]="{'height':size+'px','width':size+'px'}">
+    <div class="story-circle-inner">
+      <img [lazyLoad]="story?.icon ?? ''" src='assets/pictures/story/giphy.webp' alt="Story Image" class="story-image"
+           [ngStyle]="{'height':size*0.9+'px','width':size*0.9+'px'}"
+           height="512" width="512">
+    </div>
   </div>
 </div>
