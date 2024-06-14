@@ -1,0 +1,11 @@
+.post-list {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  padding-bottom: 10%;
+}
+
+.post-list::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar width */
+  background: transparent; /* Optional: Set scrollbar background */
+}

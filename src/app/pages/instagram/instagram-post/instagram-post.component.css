@@ -1,0 +1,76 @@
+.instagram-post {
+  width: 100%;
+  border-radius: 3px;
+  background: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  display: flex;
+  flex-direction: column;
+}
+
+.username span:first-child {
+  font-weight: bold;
+}
+
+.options {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.image img {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.actions i {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.right-actions i {
+  margin-right: 0;
+}
+
+.likes, .caption, .comments-link, .timestamp {
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+
+.caption .username {
+  font-weight: bold;
+}
+
+.hashtag {
+  color: #00376b;
+}
+
+.comments-link {
+  color: #8e8e8e;
+  cursor: pointer;
+}
+
+.timestamp {
+  color: #8e8e8e;
+  font-size: 12px;
+}

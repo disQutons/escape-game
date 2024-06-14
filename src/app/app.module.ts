@@ -27,6 +27,8 @@ import {LazyLoadImageModule} from "ng-lazyload-image";
 import {MatIconModule} from "@angular/material/icon";
 import { InstagramUpBarComponent } from './pages/instagram/instagram-up-bar/instagram-up-bar.component';
 import {MatButtonModule} from "@angular/material/button";
+import { InstagramPostComponent } from './pages/instagram/instagram-post/instagram-post.component';
+import { InstagramPostListComponent } from './pages/instagram/instagram-post-list/instagram-post-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {MatButtonModule} from "@angular/material/button";
     FeedsComponent,
     StoryListComponent,
     BarComponent,
-    InstagramUpBarComponent
+    InstagramUpBarComponent,
+    InstagramPostComponent,
+    InstagramPostListComponent
   ],
   imports: [
     BrowserModule,

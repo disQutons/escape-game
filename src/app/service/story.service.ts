@@ -1,14 +1,14 @@
 // message.service.ts
 import {Injectable} from '@angular/core';
 import {Observable, of} from "rxjs";
-import {Story} from '../models/story.model';
+import {User} from '../models/story.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoryService {
-  private stories: Story[] = [
+  private stories: User[] = [
     {
       id: 1,
       username: 'Alice Smith',
@@ -54,7 +54,7 @@ export class StoryService {
   ];
 
 
-  getStories(): Observable<Story[]> {
+  getStories(): Observable<User[]> {
     return of(this.stories);
   }
 }

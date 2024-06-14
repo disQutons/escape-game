@@ -1,4 +1,4 @@
-export interface Story {
+export interface User {
   id: number;
   username: string;
   icon: string;

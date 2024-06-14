@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Story} from "../../../models/story.model";
+import {User} from "../../../models/story.model";
 import {StoryService} from "../../../service/story.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {StoryService} from "../../../service/story.service";
   styleUrls: ['./story-list.component.css']
 })
 export class StoryListComponent implements OnInit {
-  stories: Story[] = []
+  stories: User[] = []
 
   constructor(private storyService: StoryService) {
   }

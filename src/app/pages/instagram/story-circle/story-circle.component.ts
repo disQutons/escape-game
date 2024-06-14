@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Story} from "../../../models/story.model";
+import {User} from "../../../models/story.model";
 
 @Component({
   selector: 'app-story-circle',
@@ -7,6 +7,6 @@ import {Story} from "../../../models/story.model";
   styleUrls: ['./story-circle.component.css']
 })
 export class StoryCircleComponent {
-  @Input() story: Story | undefined;
+  @Input() story: User | undefined;
   @Input() size: number = 80;
 }

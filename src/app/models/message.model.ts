@@ -1,8 +1,8 @@
-import {Story} from "./story.model";
+import {User} from "./story.model";
 
 export interface Message {
   id: number;
-  user: Story;
+  user: User;
   name: string;
   avatar: string;
   lastMessage: string;

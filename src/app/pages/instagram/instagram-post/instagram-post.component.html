@@ -1,0 +1,35 @@
+<div class="instagram-post">
+  <div class="header">
+    <img src="{{post?.user?.icon}}" alt="Profile Picture" class="profile-picture">
+    <div class="username">
+      <span>{{post?.user?.username ?? ''}}</span>
+      <span>{{ post?.placeholder  }}</span>
+    </div>
+    <div class="options">⋮</div>
+  </div>
+  <div class="image">
+    <img src="{{post?.image}}" alt="Post Image">
+  </div>
+  <div class="actions">
+    <div class="left-actions">
+      <i class="fa fa-heart-o"></i>
+      <i class="fa fa-comment-o"></i>
+      <i class="fa fa-paper-plane-o"></i>
+    </div>
+    <div class="right-actions">
+      <i class="fa fa-bookmark-o"></i>
+    </div>
+  </div>
+  <div class="likes">
+    {{ post?.views }} views
+  </div>
+  <div class="caption">
+    <span class="username">{{post?.user?.username ?? ''}}</span> {{ post?.caption }} <span class="hashtag">#template</span>
+  </div>
+  <div class="comments-link">
+    View all {{ post?.nbComments }} comments
+  </div>
+  <div class="timestamp">
+    5 DAYS AGO
+  </div>
+</div>
