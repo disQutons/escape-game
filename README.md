@@ -1,27 +1,9 @@
-# PatternLock
+# Escape Game
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+L'association disQutons a développé un Escape Game destiné aux collégiens et lycéens, en collaboration avec La Sauce Ludique, une association nantaise spécialisée dans la création de jeux. Ce jeu immersif est conçu pour être utilisé dans des collèges, lycées et autres structures pour jeunes.
 
-## Development server
+L'Escape Game traite de sujets cruciaux tels que les cyberviolences et les injonctions de genre. Après chaque session de jeu, un échange est prévu avec les jeunes participants, animé par un membre du personnel éducatif ou un représentant de l'association disQutons.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Premiere version
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Ce projet représente la version initiale de l'application, développée en mode statique avec le framework Angular. Cette version a pour objectif de simuler les fonctionnalités de l'application finale et de servir de base pour les tests et l'évaluation des interactions utilisateur. Elle permet de visualiser l'interface utilisateur et de simuler les flux de navigation, sans intégration avec une base de données ou des services backend. L'application est accessible en ligne à l'adresse suivante : https://tamraouisebti.github.io/escape-game/gallery.
