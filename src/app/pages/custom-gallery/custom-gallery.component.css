@@ -1,0 +1,18 @@
+
+.image{
+  aspect-ratio : 1 / 1;
+  width: 32%;
+  margin-left: 0.66%;
+  margin-right: 0.66%;
+}
+.gallery{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: auto;
+}
+.gallery-images{
+  padding-top: 40px;
+  overflow: scroll;
+}

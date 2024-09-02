@@ -1,5 +1,5 @@
 <div class="story">
-  <div class="story-circle" [ngStyle]="{'height':size+'px','width':size+'px'}">
+  <div class="{{showAvatarCircle?'story-circle':'story-circle-no-color'}}"  [ngStyle]="{'height':size+'px','width':size+'px'}">
     <div class="story-circle-inner">
       <img [lazyLoad]="story?.icon ?? ''" src='assets/pictures/story/giphy.webp' alt="Story Image" class="story-image"
            [ngStyle]="{'height':size*0.9+'px','width':size*0.9+'px'}"

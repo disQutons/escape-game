@@ -22,6 +22,7 @@ body {
   margin: auto;
   height: 100%;
   padding-bottom: 5%;
+  overflow-x: auto;
 }
 
 h1 {

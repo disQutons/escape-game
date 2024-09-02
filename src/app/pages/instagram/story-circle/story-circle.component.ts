@@ -9,4 +9,5 @@ import {User} from "../../../models/story.model";
 export class StoryCircleComponent {
   @Input() story: User | undefined;
   @Input() size: number = 80;
+  @Input() showAvatarCircle: boolean = true;
 }

@@ -13,14 +13,14 @@ export class AppGridComponent implements OnInit {
   apps : App[] = [];
 
   constructor(private appService: AppService, private router: Router) {
-    this.apps = appService.getApps();
+    this.apps = this.appService.getApps();
   }
 
   ngOnInit(): void {
   }
 
   openApp(app:App){
-    this.router.navigate(['/'+app.name]);
+    this.router.navigate(['/'+app.navigation]);
   }
 
 }

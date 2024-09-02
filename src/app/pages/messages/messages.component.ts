@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Message} from "../../models/message.model";
-import {MessageService} from "../../service/message.service";
 import {Router} from "@angular/router";
+import {MessageService} from "../../service/message.service";
 
 @Component({
-  selector: 'app-message-list',
-  templateUrl: './message-list.component.html',
-  styleUrls: ['./message-list.component.css']
+  selector: 'app-messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css']
 })
-export class MessageListComponent implements OnInit {
+export class MessagesComponent implements OnInit {
   messages: Message[] = [];
   isLoading: boolean = true;
 
@@ -16,7 +16,7 @@ export class MessageListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.messageService.getInstagramMessages().subscribe({
+    this.messageService.getMessages().subscribe({
       next: (data) => {
         this.messages = data
       },

@@ -1,0 +1,5 @@
+<div class="message-list">
+  <app-loading *ngIf="isLoading"></app-loading>
+  <h2 class="messages-header">Messages</h2>
+  <app-message-item *ngFor="let message of messages" [showAvatarCircle]="false" [message]="message" (click)="selectMessage(message)"></app-message-item>
+</div>

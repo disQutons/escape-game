@@ -29,6 +29,13 @@ import { InstagramUpBarComponent } from './pages/instagram/instagram-up-bar/inst
 import {MatButtonModule} from "@angular/material/button";
 import { InstagramPostComponent } from './pages/instagram/instagram-post/instagram-post.component';
 import { InstagramPostListComponent } from './pages/instagram/instagram-post-list/instagram-post-list.component';
+import { CustomGalleryComponent } from './pages/custom-gallery/custom-gallery.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {LightboxModule} from "@ngx-gallery/lightbox";
+import {GalleryModule} from "@ngx-gallery/core";
+import { GalleryAppBarComponent } from './pages/custom-gallery/gallery-app-bar/gallery-app-bar.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +56,10 @@ import { InstagramPostListComponent } from './pages/instagram/instagram-post-lis
     BarComponent,
     InstagramUpBarComponent,
     InstagramPostComponent,
-    InstagramPostListComponent
+    InstagramPostListComponent,
+    CustomGalleryComponent,
+    GalleryAppBarComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +73,10 @@ import { InstagramPostListComponent } from './pages/instagram/instagram-post-lis
     HammerModule,
     LazyLoadImageModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    GalleryModule,
+    LightboxModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
