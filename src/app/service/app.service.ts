@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {App} from "../models/app.model";
 
 @Injectable({
@@ -6,15 +6,16 @@ import {App} from "../models/app.model";
 })
 export class AppService {
 
-  constructor() { }
+  constructor() {
+  }
 
-  getApps(): App[]{
+  getApps(): App[] {
     return [
-      { name: 'Instagram', icon: 'assets/pictures/apps/instagram.png' },
-      { name: 'Discord', icon: 'assets/pictures/apps/discorde.png' },
-      { name: 'Messages', icon: 'assets/pictures/apps/messages.png' },
-      { name: 'Telephone', icon: 'assets/pictures/apps/appel.png' },
-      { name: 'Galerie', icon: 'assets/pictures/apps/photo.png' }
+      {name: 'Instagram', icon: 'assets/pictures/apps/instagram.png', navigation: 'instagram'},
+      {name: 'Discord', icon: 'assets/pictures/apps/discorde.png', navigation: 'discord'},
+      {name: 'Messages', icon: 'assets/pictures/apps/messages.png', navigation: 'messages'},
+      {name: 'Telephone', icon: 'assets/pictures/apps/appel.png', navigation: 'telephone'},
+      {name: 'Galerie', icon: 'assets/pictures/apps/photo.png', navigation: 'gallery'}
     ]
   }
 }

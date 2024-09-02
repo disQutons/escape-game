@@ -8,4 +8,5 @@ import {Message} from "../../models/message.model";
 })
 export class MessageItemComponent {
   @Input() message: Message | undefined;
+  @Input() showAvatarCircle: boolean = true;
 }

@@ -10,6 +10,14 @@
   border-radius: 50%;
   padding: 2px;
 }
+.story-circle-no-color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 50%;
+  padding: 2px;
+}
 
 .story-circle-inner {
   display: flex;
