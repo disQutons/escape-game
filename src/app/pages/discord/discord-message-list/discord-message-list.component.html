@@ -1,0 +1,123 @@
+<div class="message-list">
+  <header class="header">
+    <h2 class="title">Messages</h2>
+    <div class="action-container">
+      <div class="search-container" [class.active]="isSearchActive">
+        <button
+          class="search-bar"
+          (click)="toggleSearch()"
+          *ngIf="!isSearchActive"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <input
+          #searchInput
+          *ngIf="isSearchActive"
+          type="text"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="searchMessages()"
+          placeholder="Rechercher..."
+          class="search-input"
+          (blur)="onSearchBlur()"
+        />
+      </div>
+      <button
+        class="add-friend-btn"
+        (click)="addFriend()"
+        [class.icon-only]="isSearchActive"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-6"
+        >
+          <path
+            d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z"
+          />
+        </svg>
+        <span *ngIf="!isSearchActive">Ajouter des amis</span>
+      </button>
+    </div>
+  </header>
+  <div class="messages" *ngIf="!isSearchActive">
+    <div
+      *ngFor="let message of messages"
+      class="message-item"
+      (click)="selectMessage(message)"
+    >
+      <div class="user-icon-container">
+        <img
+          [src]="message.user.icon"
+          [alt]="message.user.username"
+          class="user-icon"
+        />
+        <span class="status-indicator" [ngClass]="message.user.status"></span>
+      </div>
+      <div class="message-content">
+        <div class="message-header">
+          <span class="username">{{ message.user.username }}</span>
+          <span class="timestamp">{{
+            message.conversation[message.conversation.length - 1].date
+              | date : "shortTime"
+          }}</span>
+        </div>
+        <div
+          class="last-message"
+          [title]="
+            message.conversation[message.conversation.length - 1].content
+          "
+        >
+          {{ message.conversation[message.conversation.length - 1].content }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-results" *ngIf="isSearchActive">
+    <ng-container *ngIf="searchResults.length > 0; else noResults">
+      <div
+        *ngFor="let result of searchResults"
+        class="search-result-item"
+        (click)="selectSearchResult(result.message, result.messageContent)"
+      >
+        <div class="user-icon-container">
+          <img
+            [src]="result.messageContent.sent ? currentUser.icon : result.message.user.icon"
+            [alt]="result.message.user.username"
+            class="user-icon"
+          />
+        </div>
+        <div class="result-content">
+          <div class="result-header">
+            <span class="username">{{ result.message.user.username }}</span>
+            <span class="timestamp">{{
+              getTimeAgo(result.messageContent.date)
+            }}</span>
+          </div>
+          <div
+            class="result-message"
+            [innerHTML]="
+              result.messageContent.content | highlight : searchQuery
+            "
+          ></div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noResults>
+      <div class="no-results">
+        <p>Aucun résultat trouvé pour "{{ searchQuery }}"</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

@@ -2,6 +2,6 @@
   <app-story-circle [showAvatarCircle]="showAvatarCircle" class="avatar" [story]="message?.user" [size]="50"></app-story-circle>
   <div class="message-info">
     <h4>{{ message?.name }}</h4>
-    <p>{{ message?.lastMessage }}</p>
+    <p *ngIf="message">{{ messageService.getLastMessage(message)  }}</p>
   </div>
 </div>

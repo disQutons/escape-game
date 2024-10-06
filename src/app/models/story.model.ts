@@ -3,4 +3,5 @@ export interface User {
   username: string;
   icon: string;
   createdAt: string;
+  status?: 'online' | 'offline' | 'idle' | 'dnd';
 }
