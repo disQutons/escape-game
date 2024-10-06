@@ -6,6 +6,31 @@ import { Message, MessageContent } from '../models/message.model';
   providedIn: 'root'
 })
 export class MessageService {
+
+  private hints: { [platform: string]: { [key: string]: string } } = {
+    'instagram': {
+      'filter': 'Try using different filters to reveal hidden messages',
+      'story': 'Check the stories for time-sensitive clues',
+      'dm': 'Direct messages might contain private information',
+      'hashtag': 'Popular hashtags could lead to community-shared hints',
+      'bio': 'User bios might contain coded messages'
+    },
+    'discord': {
+      'server': 'Different servers might have different pieces of the puzzle',
+      'channel': 'Check all channels for scattered clues',
+      'role': 'User roles might grant access to hidden information',
+      'bot': 'Interact with bots for automated hints',
+      'voice': 'Voice channels might have audio clues'
+    },
+    'generic': {
+      'escape': 'Look for hidden passages',
+      'key': 'Keys can open more than just doors',
+      'puzzle': 'Pay attention to patterns',
+      'clue': 'Sometimes the answer is right in front of you',
+      'secret': 'Not everything is as it seems'
+    }
+  };
+
   private instagramMessages: Message[] = [
     {
       id: 1,
@@ -265,7 +290,7 @@ export class MessageService {
     }
   }
 
-  sendMessage(messageId: number, content: string, type: 'text' | 'image', date: string, platform: 'instagram' | 'discord' | 'generic' = 'generic'): void {
+  sendMessage(messageId: number, content: string, type: 'text' | 'image', date: string, platform: 'instagram' | 'discord' | 'generic' = 'generic'): Observable<string | null> {
     let targetMessages: Message[];
     switch (platform) {
       case 'instagram':
@@ -282,7 +307,29 @@ export class MessageService {
     if (message) {
       const newMessage: MessageContent = { type, content, sent: true, date };
       message.conversation.push(newMessage);
+      // Check for hints
+      const hint = this.checkForHint(content, platform);
+      console.log(hint);
+      if (hint) {
+        const hintMessage: MessageContent = { type: 'text', content: hint, sent: false, date: new Date().toISOString() };
+        message.conversation.push(hintMessage);
+        return of(hint);
+      }
     }
+    return of(null);
+  }
+
+  private checkForHint(message: string, platform: 'instagram' | 'discord' | 'generic'): string | null {
+    const words = message.toLowerCase().split(' ');
+    for (const word of words) {
+      if (this.hints[platform][word]) {
+        return this.hints[platform][word];
+      }
+      if (this.hints['generic'][word]) {
+        return this.hints['generic'][word];
+      }
+    }
+    return null;
   }
 
   getMessagesByPlatform(platform: 'instagram' | 'discord' | 'generic'): Observable<Message[]> {
