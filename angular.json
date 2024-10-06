@@ -71,6 +71,10 @@
               "browserTarget": "escape-game:build:development"
             }
           },
+          "options": {
+            "hmr": true,
+            "port": 4200
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
