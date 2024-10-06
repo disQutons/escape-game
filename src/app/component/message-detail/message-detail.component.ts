@@ -21,9 +21,8 @@ export class MessageDetailComponent implements OnInit{
     if (this.selectedMessage) {
       const text = this.newMessage;
       const date = (new Date()).toISOString();
-      this.messageService.sendMessage(this.selectedMessage.id, this.newMessage,date);
-      this.selectedMessage.conversation.push({ text, sent: true ,date:date});
-      this.selectedMessage.lastMessage = text;
+      this.messageService.sendMessage(this.selectedMessage.id, this.newMessage, "text",date);
+      this.selectedMessage.conversation.push({content: text, type: "text", date: date, sent: true});
       this.newMessage = '';
     }
   }

@@ -1,41 +1,40 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {HomeComponent} from './pages/home/home.component';
-import {PatternLockComponent} from './component/pattern-lock/pattern-lock.component';
-import {ClockComponent} from './component/clock/clock.component';
-import {BarComponent} from './component/bar/bar.component';
-import {CommonModule, NgOptimizedImage} from "@angular/common";
-import {AppGridComponent} from './component/app-grid/app-grid.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatGridListModule} from "@angular/material/grid-list";
-import {FlexLayoutModule} from "@angular/flex-layout";
-import {InstagramComponent} from './pages/instagram/instagram.component';
-import {MessageListComponent} from './component/message-list/message-list.component';
-import {MessageDetailComponent} from './component/message-detail/message-detail.component';
-import {MessageItemComponent} from './component/message-item/message-item.component';
-import {FormsModule} from "@angular/forms";
-import {LoadingComponent} from './component/loading/loading.component';
-import {StoryCircleComponent} from './pages/instagram/story-circle/story-circle.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PatternLockComponent } from './component/pattern-lock/pattern-lock.component';
+import { ClockComponent } from './component/clock/clock.component';
+import { BarComponent } from './component/bar/bar.component';
+import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { AppGridComponent } from './component/app-grid/app-grid.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from "@angular/material/grid-list";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { InstagramComponent } from './pages/instagram/instagram.component';
+import { MessageListComponent } from './component/message-list/message-list.component';
+import { MessageDetailComponent } from './component/message-detail/message-detail.component';
+import { MessageItemComponent } from './component/message-item/message-item.component';
+import { FormsModule } from "@angular/forms";
+import { LoadingComponent } from './component/loading/loading.component';
+import { StoryCircleComponent } from './pages/instagram/story-circle/story-circle.component';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { HammerModule, HammerGestureConfig } from '@angular/platform-browser';
 import { FeedsComponent } from './pages/instagram/feeds/feeds.component';
 import { StoryListComponent } from './pages/instagram/story-list/story-list.component';
-import {LazyLoadImageModule} from "ng-lazyload-image";
-import {MatIconModule} from "@angular/material/icon";
+import { LazyLoadImageModule } from "ng-lazyload-image";
+import { MatIconModule } from "@angular/material/icon";
 import { InstagramUpBarComponent } from './pages/instagram/instagram-up-bar/instagram-up-bar.component';
-import {MatButtonModule} from "@angular/material/button";
+import { MatButtonModule } from "@angular/material/button";
 import { InstagramPostComponent } from './pages/instagram/instagram-post/instagram-post.component';
 import { InstagramPostListComponent } from './pages/instagram/instagram-post-list/instagram-post-list.component';
 import { CustomGalleryComponent } from './pages/custom-gallery/custom-gallery.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {LightboxModule} from "@ngx-gallery/lightbox";
-import {GalleryModule} from "@ngx-gallery/core";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { LightboxModule } from "@ngx-gallery/lightbox";
+import { GalleryModule } from "@ngx-gallery/core";
 import { GalleryAppBarComponent } from './pages/custom-gallery/gallery-app-bar/gallery-app-bar.component';
 import { MessagesComponent } from './pages/messages/messages.component';
-
+import { DiscordModule } from './pages/discord/discord.module';
 
 @NgModule({
   declarations: [
@@ -53,13 +52,12 @@ import { MessagesComponent } from './pages/messages/messages.component';
     StoryCircleComponent,
     FeedsComponent,
     StoryListComponent,
-    BarComponent,
     InstagramUpBarComponent,
     InstagramPostComponent,
     InstagramPostListComponent,
     CustomGalleryComponent,
     GalleryAppBarComponent,
-    MessagesComponent
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +74,8 @@ import { MessagesComponent } from './pages/messages/messages.component';
     MatButtonModule,
     MatToolbarModule,
     GalleryModule,
-    LightboxModule
+    LightboxModule,
+    DiscordModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
@@ -84,5 +83,4 @@ import { MessagesComponent } from './pages/messages/messages.component';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

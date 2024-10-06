@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Message} from "../../models/message.model";
+import { MessageService } from 'src/app/service/message.service';
 
 @Component({
   selector: 'app-message-item',
@@ -9,4 +10,6 @@ import {Message} from "../../models/message.model";
 export class MessageItemComponent {
   @Input() message: Message | undefined;
   @Input() showAvatarCircle: boolean = true;
+  constructor(public messageService: MessageService) {}
+
 }
