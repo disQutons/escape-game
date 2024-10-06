@@ -8,6 +8,13 @@
     </div>
   </div>
   <div class="battery">
-    75% <i class="fas fa-battery-three-quarters"></i>
+    <i class="fas" [ngClass]="{
+      'fa-battery-empty': batteryPercentage <= 0,
+      'fa-battery-quarter': batteryPercentage > 0 && batteryPercentage <= 25,
+      'fa-battery-half': batteryPercentage > 25 && batteryPercentage <= 50,
+      'fa-battery-three-quarters': batteryPercentage > 50 && batteryPercentage <= 75,
+      'fa-battery-full': batteryPercentage > 75
+    }"></i>
+    <span>{{ batteryPercentage | number: '1.0-0' }}%</span>
   </div>
 </div>
