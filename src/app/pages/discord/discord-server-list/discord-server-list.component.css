@@ -1,0 +1,87 @@
+.server-list {
+  background-color: #141318;
+  width: 72px;
+  height: 100%;
+  padding: 10px 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-icon {
+  margin-bottom: 10px;
+  width: 45px;
+  height: 45px;
+  background-color: #5865f2;
+  color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.message-icon::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 0;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 0;
+  transition: height 0.3s ease;
+}
+
+.message-icon.selected::before {
+  height: 40px;
+}
+
+.message-icon svg {
+  width: 30px;
+  height: 30px;
+  transform: translate(1px, -1px);
+}
+
+.server-separator {
+  width: 32px;
+  height: 2px;
+  background-color: #2f3136;
+  margin: 10px 0;
+}
+
+.server-item {
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.server-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transition: border-radius 0.3s ease;
+}
+
+.server-item:hover .server-icon {
+  border-radius: 30%;
+}
+
+.server-item::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 0;
+  background-color: #ffffff;
+  border-radius: 0 4px 4px 0;
+  transition: height 0.3s ease;
+}
+
+.server-item:hover::before {
+  height: 20px;
+}

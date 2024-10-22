@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 58px);
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  background-color: #141318;
+  display: flex;
+}
+
+app-discord-server-list {
+  flex-shrink: 0;
+}
+
+.content-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+app-server-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #36393f;
+}
+
+.messages-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #141318;
+}
+
+.conversation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1c1d22;
+}
+
+app-discord-conversation {
+  width: 100%;
+  height: 100%;
+}

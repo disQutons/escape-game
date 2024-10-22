@@ -1,0 +1,34 @@
+<div class="container">
+  <app-discord-server-list
+    [isMessageIconSelected]="isMessageIconSelected"
+    (serverClicked)="onServerClicked()"
+    (messageIconClicked)="onMessageIconClicked()"
+  >
+  </app-discord-server-list>
+  <div class="content-container">
+    <app-server-error></app-server-error>
+    <div
+      class="messages-container"
+      [@slideMessages]="showMessages ? 'show' : 'hide'"
+    >
+      <app-discord-message-list
+        (messageSelected)="openConversation($event)"
+        [currentUser]="currentUser"
+      ></app-discord-message-list>
+    </div>
+    <div
+      class="conversation-container"
+      [@slideConversation]="selectedMessage ? 'show' : 'hide'"
+    >
+      <app-discord-conversation
+        *ngIf="selectedMessage"
+        [message]="selectedMessage"
+        [currentUser]="currentUser"
+        [scrollToIndex]="selectedMessageIndex"
+        (backClicked)="closeConversation()"
+      >
+      </app-discord-conversation>
+    </div>
+  </div>
+</div>
+<app-discord-bar [currentUser]="currentUser"></app-discord-bar>
