@@ -1,0 +1,191 @@
+/* discord-message-list.component.css */
+.message-list {
+  background-color: #1c1d22;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-top-left-radius: 25px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  background-color: #1c1d22;
+  border-bottom: 1px solid #2f3136;
+  border-top-left-radius: 25px;
+}
+
+.action-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.search-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.search-bar {
+  width: 30px;
+  height: 30px;
+  background-color: #373a43;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-container.active {
+  flex-grow: 1;
+}
+
+.search-input {
+  width: 100%;
+  height: 30px;
+  background-color: #373a43;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.add-friend-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  background-color: #373a43;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.add-friend-btn.icon-only {
+  width: 30px;
+  padding: 6px;
+}
+
+.add-friend-btn svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+.add-friend-btn.icon-only svg {
+  margin-right: 0;
+}
+
+.messages, .search-results {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.message-item, .search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.message-item:hover, .search-result-item:hover {
+  background-color: #32353b;
+}
+
+.user-icon-container {
+  position: relative;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.user-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #1c1d22;
+}
+
+.status-indicator.online {
+  background-color: #43b581;
+}
+
+.message-content, .result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.message-header, .result-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.username {
+  font-weight: bold;
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: #72767d;
+  white-space: nowrap;
+}
+
+.last-message, .result-message {
+  color: #dcddde;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.result-message {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #72767d;
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+}

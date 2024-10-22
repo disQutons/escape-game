@@ -21,10 +21,14 @@ export class MessageDetailComponent implements OnInit{
     if (this.selectedMessage) {
       const text = this.newMessage;
       const date = (new Date()).toISOString();
-      this.messageService.sendMessage(this.selectedMessage.id, this.newMessage,date);
-      this.selectedMessage.conversation.push({ text, sent: true ,date:date});
-      this.selectedMessage.lastMessage = text;
-      this.newMessage = '';
+      this.messageService.sendMessage(this.selectedMessage.id, this.newMessage, "text", date, 'generic')
+        .subscribe(hint => {
+          this.selectedMessage?.conversation.push({content: text, type: "text", date: date, sent: true});
+          if (hint) {
+            this.selectedMessage?.conversation.push({content: hint, type: "text", date: new Date().toISOString(), sent: false});
+          }
+          this.newMessage = '';
+        });
     }
   }
 }

@@ -9,7 +9,7 @@
         <p>{{ msg.date | date:'medium' }}</p>
       </div>
       <div class="message" [ngClass]="{'sent': msg.sent, 'received': !msg.sent}">
-        <p>{{ msg.text }}</p></div>
+        <p>{{ msg.content }}</p></div>
     </div>
   </div>
   <div class="message-input">
