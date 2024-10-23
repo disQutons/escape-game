@@ -14,7 +14,7 @@ export class AppService {
       {name: 'Instagram', icon: 'assets/pictures/apps/instagram.png', navigation: 'instagram'},
       {name: 'Discord', icon: 'assets/pictures/apps/discorde.png', navigation: 'discord'},
       {name: 'Messages', icon: 'assets/pictures/apps/messages.png', navigation: 'messages'},
-      {name: 'Telephone', icon: 'assets/pictures/apps/appel.png', navigation: 'telephone'},
+      {name: 'Telephone', icon: 'assets/pictures/apps/appel.png', navigation: 'phone'},
       {name: 'Galerie', icon: 'assets/pictures/apps/photo.png', navigation: 'gallery'}
     ]
   }
