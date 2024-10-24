@@ -5,6 +5,7 @@ export interface PhoneContact {
   avatar?: string;
   audioFile: string;
   pickupDelay: number;
+  requiredApps?: ('discord' | 'instagram')[];
 }
 
 export interface CallState {

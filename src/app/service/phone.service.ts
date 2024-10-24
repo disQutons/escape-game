@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, timer, Subscription } from 'rxjs';
 import { PhoneContact, CallState } from '../pages/phone/phone.model';
+import { AppService } from './app.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class PhoneService {
       number: '0240418532',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/fleuriste-prof.mp3',
-      pickupDelay: 2, // Picks up after 3 seconds
+      pickupDelay: 2,
+      requiredApps: ['discord']
     },
     {
       id: 2,
@@ -21,7 +23,8 @@ export class PhoneService {
       number: '0240123578',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/josh-antoine.mp3',
-      pickupDelay: 3, // Picks up after 5 seconds
+      pickupDelay: 3,
+      requiredApps: ['discord']
     },
     {
       id: 3,
@@ -29,7 +32,8 @@ export class PhoneService {
       number: '0240859674',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/club.mp3',
-      pickupDelay: 3, // Picks up after 2 seconds
+      pickupDelay: 3,
+      requiredApps: ['instagram']
     },
     {
       id: 4,
@@ -37,7 +41,8 @@ export class PhoneService {
       number: '0240123456',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/banque.mp3',
-      pickupDelay: 2, // Picks up after 2 seconds
+      pickupDelay: 2,
+      requiredApps: ['discord']
     },
   ];
 
@@ -58,6 +63,8 @@ export class PhoneService {
   private durationTimer?: Subscription;
   private startTime?: number;
   private callTimeout?: NodeJS.Timeout;
+
+  constructor(private appService: AppService) {}
 
   /**
    * Validates if the provided number follows French phone number format
@@ -94,8 +101,14 @@ export class PhoneService {
     const contact = this.contacts.find((c) => c.number === number);
     const isEndingNumber = number === this.endingNumber;
 
-    if (contact || isEndingNumber) {
-      this.startCall(contact, isEndingNumber);
+    if (contact) {
+      if (this.canAccessContact(contact)) {
+        this.startCall(contact, false);
+      } else {
+        this.startUnknownCall();
+      }
+    } else if (isEndingNumber) {
+      this.startCall(undefined, true);
     } else {
       this.startUnknownCall();
     }
@@ -280,5 +293,10 @@ export class PhoneService {
    */
   getCallState(): Observable<CallState> {
     return this.callStateSubject.asObservable();
+  }
+
+  private canAccessContact(contact: PhoneContact): boolean {
+    if (!contact.requiredApps || contact.requiredApps.length === 0) return true;
+    return contact.requiredApps.every(app => this.appService.isAppUnlocked(app));
   }
 }

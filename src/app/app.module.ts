@@ -15,7 +15,7 @@ import { InstagramComponent } from './pages/instagram/instagram.component';
 import { MessageListComponent } from './component/message-list/message-list.component';
 import { MessageDetailComponent } from './component/message-detail/message-detail.component';
 import { MessageItemComponent } from './component/message-item/message-item.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoadingComponent } from './component/loading/loading.component';
 import { StoryCircleComponent } from './pages/instagram/story-circle/story-circle.component';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -37,6 +37,7 @@ import { MessagesComponent } from './pages/messages/messages.component';
 import { DiscordModule } from './pages/discord/discord.module';
 import { PhoneComponent } from './pages/phone/phone.component';
 import { BottomNavBarComponent } from './component/bottom-nav-bar/bottom-nav-bar.component';
+import { CodeUnlockComponent } from './component/app-grid/code-unlock.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { BottomNavBarComponent } from './component/bottom-nav-bar/bottom-nav-bar
     GalleryAppBarComponent,
     MessagesComponent,
     PhoneComponent,
-    BottomNavBarComponent
+    BottomNavBarComponent,
+    CodeUnlockComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ import { BottomNavBarComponent } from './component/bottom-nav-bar/bottom-nav-bar
     MatToolbarModule,
     GalleryModule,
     LightboxModule,
-    DiscordModule
+    DiscordModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
