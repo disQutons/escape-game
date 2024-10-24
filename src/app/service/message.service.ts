@@ -282,101 +282,18 @@ export class MessageService {
       id: 1,
       user: {
         id: 1,
-        username: 'John Doe',
-        icon: 'assets/pictures/story/3.jpg',
+        username: '30120',
+        icon: 'src/assets/avatars/profil_default.png',
         createdAt: '2024-06-12T10:20:30Z'
       },
-      name: 'John Doe',
-      avatar: 'assets/pictures/img.png',
+      name: '30120',
+      avatar: 'src/assets/avatars/profil_default.png',
       conversation: [
-        { type: 'text', content: 'Hi John, are you free this weekend?', sent: true, date: '2024-06-12T10:20:30Z' },
-        { type: 'text', content: 'Hey, yes I am. Why do you ask?', sent: false, date: '2024-06-12T10:21:00Z' },
-        { type: 'text', content: 'I was thinking of organizing a hiking trip.', sent: true, date: '2024-06-12T10:21:30Z' },
-        { type: 'text', content: 'That sounds great! Count me in.', sent: false, date: '2024-06-12T10:22:00Z' },
-        { type: 'text', content: "Awesome! I'll send you the details soon.", sent: true, date: '2024-06-12T10:22:30Z' },
-        { type: 'text', content: 'Looking forward to it. Need any help with the planning?', sent: false, date: '2024-06-12T10:23:00Z' },
-        { type: 'text', content: "Maybe with the logistics. I'll keep you posted.", sent: true, date: '2024-06-12T10:23:30Z' },
-        { type: 'text', content: 'Sure thing. Just let me know what needs to be done.', sent: false, date: '2024-06-12T10:24:00Z' },
-        { type: 'text', content: 'Will do. Thanks for the help, John.', sent: true, date: '2024-06-12T10:24:30Z' },
-        { type: 'text', content: "Absolutely, I'll let you know once I have the details!", sent: false, date: '2024-06-12T10:25:00Z' },
-      ]
-    },
-    {
-      id: 2,
-      name: 'Emily Clark',
-      user: {
-        id: 2,
-        username: 'Emily Clark',
-        icon: 'assets/pictures/story/4.jpg',
-        createdAt: '2024-06-11T15:45:00Z'
-      },
-      avatar: 'assets/pictures/img_1.png',
-      conversation: [
-        { type: 'text', content: "Hi Emily! How's your day going?", sent: true, date: '2024-06-11T15:45:00Z' },
-        { type: 'text', content: "Hey there! It's going well, thanks. Just finished a big project at work.", sent: false, date: '2024-06-11T15:46:00Z' },
-        { type: 'text', content: "That's great news! Congrats on finishing the project. How are you celebrating?", sent: true, date: '2024-06-11T15:47:00Z' },
-        { type: 'text', content: "Thanks! I'm thinking of treating myself to a nice dinner tonight.", sent: false, date: '2024-06-11T15:48:00Z' },
-        { type: 'text', content: 'Sounds perfect. Any place in mind?', sent: true, date: '2024-06-11T15:49:00Z' },
-        { type: 'text', content: "I've been wanting to try that new Italian place downtown. Have you been there?", sent: false, date: '2024-06-11T15:50:00Z' },
-        { type: 'text', content: 'Oh yes! I went there last week. The pasta is amazing!', sent: true, date: '2024-06-11T15:51:00Z' },
-        { type: 'text', content: "Great to hear! Now I'm even more excited. Here's the menu I found online:", sent: false, date: '2024-06-11T15:52:00Z' },
-        { type: 'image', content: 'assets/italian-restaurant-menu.jpg', sent: false, date: '2024-06-11T15:52:30Z' },
-        { type: 'text', content: 'Wow, everything looks delicious! I recommend the Fettuccine Alfredo.', sent: true, date: '2024-06-11T15:53:00Z' },
-        { type: 'text', content: "Thanks for the recommendation! I'll definitely try that.", sent: false, date: '2024-06-11T15:54:00Z' },
-        { type: 'text', content: 'Enjoy your dinner! Let me know how it goes.', sent: true, date: '2024-06-11T15:55:00Z' },
-        { type: 'text', content: 'Will do! Thanks again.', sent: false, date: '2024-06-11T15:56:00Z' },
-      ]
-    },
-    {
-      id: 3,
-      name: 'Michael Johnson',
-      user: {
-        id: 3,
-        username: 'Michael Johnson',
-        icon: 'assets/pictures/story/5.jpg',
-        createdAt: '2024-06-10T09:30:00Z'
-      },
-      avatar: 'assets/pictures/img_2.png',
-      conversation: [
-        { type: 'text', content: "Hey Michael, how's the app development going?", sent: true, date: '2024-06-10T09:30:00Z' },
-        { type: 'text', content: "Hi! It's going well, thanks for asking. We just finished the main UI.", sent: false, date: '2024-06-10T09:31:00Z' },
-        { type: 'text', content: "That's great progress! Can I see a preview?", sent: true, date: '2024-06-10T09:32:00Z' },
-        { type: 'text', content: "Sure thing! Here's a screenshot of the home screen:", sent: false, date: '2024-06-10T09:33:00Z' },
-        { type: 'image', content: 'assets/app-home-screen.png', sent: false, date: '2024-06-10T09:33:30Z' },
-        { type: 'text', content: 'Wow, it looks amazing! The design is so clean and intuitive.', sent: true, date: '2024-06-10T09:34:00Z' },
-        { type: 'text', content: 'Thanks! We put a lot of effort into making it user-friendly.', sent: false, date: '2024-06-10T09:35:00Z' },
-        { type: 'text', content: "What's next on the development roadmap?", sent: true, date: '2024-06-10T09:36:00Z' },
-        { type: 'text', content: "We're starting on the backend integration next week. It's going to be challenging but exciting!", sent: false, date: '2024-06-10T09:37:00Z' },
-        { type: 'text', content: 'Sounds like a big step. Good luck with that! Let me know if you need any help testing.', sent: true, date: '2024-06-10T09:38:00Z' },
-        { type: 'text', content: "Thanks, I appreciate that! I'll definitely reach out when we're ready for user testing.", sent: false, date: '2024-06-10T09:39:00Z' },
-        { type: 'text', content: 'Perfect. Keep up the great work!', sent: true, date: '2024-06-10T09:40:00Z' },
-      ]
-    },
-    {
-      id: 4,
-      name: 'Sarah Thompson',
-      user: {
-        id: 4,
-        username: 'Sarah Thompson',
-        icon: 'assets/pictures/story/6.jpg',
-        createdAt: '2024-06-09T14:00:00Z'
-      },
-      avatar: 'assets/pictures/img_3.png',
-      conversation: [
-        { type: 'text', content: 'Hi Sarah! How was your vacation?', sent: true, date: '2024-06-09T14:00:00Z' },
-        { type: 'text', content: 'Hey! It was absolutely amazing. I had such a great time!', sent: false, date: '2024-06-09T14:01:00Z' },
-        { type: 'text', content: "That's wonderful to hear! Where did you go again?", sent: true, date: '2024-06-09T14:02:00Z' },
-        { type: 'text', content: 'I went to Bali. The beaches were breathtaking!', sent: false, date: '2024-06-09T14:03:00Z' },
-        { type: 'text', content: "Oh wow, I've always wanted to go there. Do you have any pictures to share?", sent: true, date: '2024-06-09T14:04:00Z' },
-        { type: 'text', content: "Of course! Here's one of my favorite shots from the trip:", sent: false, date: '2024-06-09T14:05:00Z' },
-        { type: 'image', content: 'assets/bali-beach-sunset.jpg', sent: false, date: '2024-06-09T14:05:30Z' },
-        { type: 'text', content: "That's absolutely stunning! The colors in that sunset are incredible.", sent: true, date: '2024-06-09T14:06:00Z' },
-        { type: 'text', content: 'I know, right? It was even more beautiful in person.', sent: false, date: '2024-06-09T14:07:00Z' },
-        { type: 'text', content: 'What was your favorite part of the trip?', sent: true, date: '2024-06-09T14:08:00Z' },
-        { type: 'text', content: 'Probably exploring the local markets and trying all the delicious street food!', sent: false, date: '2024-06-09T14:09:00Z' },
-        { type: 'text', content: "That sounds amazing. You'll have to tell me all about it over coffee sometime!", sent: true, date: '2024-06-09T14:10:00Z' },
-        { type: 'text', content: 'Definitely! How about next week?', sent: false, date: '2024-06-09T14:11:00Z' },
-        { type: 'text', content: 'Sounds perfect. Looking forward to it!', sent: true, date: '2024-06-09T14:12:00Z' },
+        { type: 'text', content: 'Le service client disQutons reste à votre service. En cas de besoin, envoyez-nous un message avec le document qui bloque', sent: true, date: '2024-06-12T10:20:30Z' },
+        { type: 'text', content: 'Envoyez le chiffre "1" et le nom du document pour un premier coup de main', sent: true, date: '2024-06-12T10:20:30Z' },
+        { type: 'text', content: 'Envoyez le chiffre "2" et le nom du document pour un second une iade plus précise', sent: true, date: '2024-06-12T10:20:30Z' },
+        { type: 'text', content: 'Envoyez "solution" et le nom du document pour une prise en charge complète par nos service', sent: true, date: '2024-06-12T10:20:30Z' },
+      
       ]
     }
   ];
