@@ -35,6 +35,8 @@ import { GalleryModule } from "@ngx-gallery/core";
 import { GalleryAppBarComponent } from './pages/custom-gallery/gallery-app-bar/gallery-app-bar.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { DiscordModule } from './pages/discord/discord.module';
+import { PhoneComponent } from './pages/phone/phone.component';
+import { BottomNavBarComponent } from './component/bottom-nav-bar/bottom-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { DiscordModule } from './pages/discord/discord.module';
     CustomGalleryComponent,
     GalleryAppBarComponent,
     MessagesComponent,
+    PhoneComponent,
+    BottomNavBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 .discord-bar {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   background-color: #2d2d35;
   color: #ffffff;
   padding: 10px;
-  height: 58px;
+  height: 114px;
 }
 
 .action-item {
