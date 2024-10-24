@@ -9,7 +9,7 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
   @Input() onSuccess!: () => void;
 
   title = 'pattern-lock';
-  matchedPattern = 5784;
+  matchedPattern = [5784, 14785963, 36958741, 12356987, 78965321, 74152369, 96325147, 32145789, 98754123];
   isMatched: boolean|null = null;
 
   audio: HTMLAudioElement;
@@ -33,7 +33,7 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
     const p = new PatternLock(document.getElementById('lock'), {
       onPattern: function (pattern: any) {
         if (pattern) {
-          if (me.matchedPattern === pattern) {
+          if (me.matchedPattern.includes(pattern)) {
             me.isMatched = true;
             if (me.onSuccess){
               me.onSuccess()

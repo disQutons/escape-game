@@ -9,26 +9,34 @@ export class PhoneService {
   private contacts: PhoneContact[] = [
     {
       id: 1,
-      name: 'Sarah',
-      number: '0778764032',
-      avatar: 'assets/avatars/sarah.jpg',
-      audioFile: 'assets/audio/sarah-message.mp3',
-      pickupDelay: 3, // Picks up after 3 seconds
+      name: '02 40 41 85 32',
+      number: '0240418532',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/fleuriste-prof.mp3',
+      pickupDelay: 2, // Picks up after 3 seconds
     },
     {
       id: 2,
-      name: 'Mike',
-      number: '0645789012',
-      avatar: 'assets/avatars/mike.jpg',
-      audioFile: 'assets/audio/mike-message.mp3',
-      pickupDelay: 5, // Picks up after 5 seconds
+      name: '02 40 12 35 78',
+      number: '0240123578',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/josh-antoine.mp3',
+      pickupDelay: 3, // Picks up after 5 seconds
     },
     {
       id: 3,
-      name: 'Julie',
-      number: '0699887766',
-      avatar: 'assets/avatars/julie.jpg',
-      audioFile: 'assets/audio/julie-message.mp3',
+      name: 'Club de Tennis',
+      number: '0240859674',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/club.mp3',
+      pickupDelay: 3, // Picks up after 2 seconds
+    },
+    {
+      id: 4,
+      name: '02 40 12 34 56',
+      number: '0240123456',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/banque.mp3',
       pickupDelay: 2, // Picks up after 2 seconds
     },
   ];
@@ -101,7 +109,7 @@ export class PhoneService {
       this.ringtoneAudio.pause();
       this.ringtoneAudio.currentTime = 0;
     } else {
-      this.ringtoneAudio = new Audio('assets/audio/ringtone.mp3');
+      this.ringtoneAudio = new Audio('assets/audio/phone-calling.mp3');
       this.ringtoneAudio.loop = true;
     }
     this.ringtoneAudio.play();
