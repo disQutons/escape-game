@@ -24,12 +24,9 @@
     {{ post?.views }} views
   </div>
   <div class="caption">
-    <span class="username">{{post?.user?.username ?? ''}}</span> {{ post?.caption }} <span class="hashtag">#template</span>
+    <span class="username">{{post?.user?.username ?? ''}}</span> {{ post?.caption }}
   </div>
   <div class="comments-link">
-    View all {{ post?.nbComments }} comments
-  </div>
-  <div class="timestamp">
-    5 DAYS AGO
+    Voir {{ post?.nbComments }} commentaires
   </div>
 </div>
