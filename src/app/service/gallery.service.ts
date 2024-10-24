@@ -10,40 +10,34 @@ export class GalleryService {
   private images: GalleryImageModel[] = [
     {
       id: 1,
-      previewUrl:`assets/pictures/story/thumbnail/1.jpg`,
-      srcUrl:`assets/pictures/story/1.jpg`,
+      previewUrl:`assets/pictures/story/thumbnail/freres.jpg`,
+      srcUrl:`assets/pictures/story/freres.jpg`,
     },
     {
       id: 2,
-      previewUrl:`assets/pictures/story/thumbnail/2.jpg`,
-      srcUrl:`assets/pictures/story/2.jpg`,
+      previewUrl:`assets/pictures/story/thumbnail/couture.jpg`,
+      srcUrl:`assets/pictures/story/couture.jpg`,
     },
     {
       id: 3,
-      previewUrl:`assets/pictures/story/thumbnail/3.jpg`,
-      srcUrl:`assets/pictures/story/3.jpg`,
+      previewUrl:`assets/pictures/story/thumbnail/soiree.jpg`,
+      srcUrl:`assets/pictures/story/soiree.jpg`,
     },
     {
       id: 4,
-      previewUrl:`assets/pictures/story/thumbnail/4.jpg`,
-      srcUrl:`assets/pictures/story/4.jpg`,
+      previewUrl:`assets/pictures/story/thumbnail/antoine_selfie.jpg`,
+      srcUrl:`assets/pictures/story/antoine_selfie.jpg`,
     },
     {
       id: 5,
-      previewUrl:`assets/pictures/story/thumbnail/5.jpg`,
-      srcUrl:`assets/pictures/story/5.jpg`,
+      previewUrl:`assets/pictures/story/thumbnail/mamie.jpg`,
+      srcUrl:`assets/pictures/story/mamie.jpg`,
     },
     {
       id: 6,
-      previewUrl:`assets/pictures/story/thumbnail/6.jpg`,
-      srcUrl:`assets/pictures/story/6.jpg`,
+      previewUrl:`assets/pictures/story/thumbnail/tennis.jpg`,
+      srcUrl:`assets/pictures/story/tennis.jpg`,
     },
-    {
-      id: 7,
-      previewUrl:`assets/pictures/story/thumbnail/7.jpg`,
-      srcUrl:`assets/pictures/story/7.jpg`,
-    },
-
   ];
 
 
