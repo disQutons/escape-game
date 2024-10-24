@@ -16,7 +16,7 @@ export class AppService {
       {name: 'Messages', icon: 'assets/pictures/apps/messages.png', navigation: 'messages'},
       {name: 'Telephone', icon: 'assets/pictures/apps/appel.png', navigation: 'phone'},
       {name: 'Galerie', icon: 'assets/pictures/apps/photo.png', navigation: 'gallery'}
-      {name: 'Fin du jeu', icon: 'assets/pictures/apps/shutdown.png', navigation: 'home'}
+      //{name: 'Fin du jeu', icon: 'assets/pictures/apps/shutdown.png', navigation: 'home'}
     ]
   }
 }
