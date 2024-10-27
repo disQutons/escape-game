@@ -6,6 +6,7 @@ export interface PhoneContact {
   audioFile: string;
   pickupDelay: number;
   requiredApps?: ('discord' | 'instagram')[];
+  winCondition?: number;
 }
 
 export interface CallState {
