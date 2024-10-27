@@ -59,7 +59,6 @@ export class PhoneComponent implements OnInit, OnDestroy {
         this.isDialpadVisible = !state.isActive;
       });
 
-    // Subscribe to game state changes to handle end game conditions
     this.gameStateSubscription = this.gameService.getGameState().subscribe(state => {
       if (state.gameCompleted) {
         this.showEndModal = true;
