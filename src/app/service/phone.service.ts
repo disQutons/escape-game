@@ -53,7 +53,7 @@ export class PhoneService {
   private readonly endingNumber = '0666666666';
   private readonly invalidNumberAudio = 'assets/audio/invalid-number.mp3';
   private readonly winAudio = 'assets/audio/ending-message.mp3';
-  private readonly unknownNumberDuration = 2; // Duration for unknown numbers in seconds
+  private readonly unknownNumberDuration = 4; // Duration for unknown numbers in seconds
 
   private callStateSubject = new BehaviorSubject<CallState>({
     isActive: false,
