@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, timer, Subscription } from 'rxjs';
 import { PhoneContact, CallState } from '../pages/phone/phone.model';
 import { AppService } from './app.service';
+import { GameService } from './game.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class PhoneService {
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/fleuriste-prof.mp3',
       pickupDelay: 2,
-      requiredApps: ['discord']
+      requiredApps: ['discord'],
+      winCondition: 1
     },
     {
       id: 2,
@@ -24,7 +26,8 @@ export class PhoneService {
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/josh-antoine.mp3',
       pickupDelay: 3,
-      requiredApps: ['discord']
+      requiredApps: ['discord'],
+      winCondition: 2
     },
     {
       id: 3,
@@ -64,7 +67,10 @@ export class PhoneService {
   private startTime?: number;
   private callTimeout?: NodeJS.Timeout;
 
-  constructor(private appService: AppService) {}
+  constructor(
+    private appService: AppService,
+    private gameService: GameService
+  ) {}
 
   /**
    * Validates if the provided number follows French phone number format
@@ -97,7 +103,6 @@ export class PhoneService {
       this.handleInvalidNumber();
       return;
     }
-
     const contact = this.contacts.find((c) => c.number === number);
     const isEndingNumber = number === this.endingNumber;
 
@@ -201,6 +206,10 @@ export class PhoneService {
           status: 'connected',
           currentDuration: 0,
         });
+
+        if (contact?.winCondition) {
+          this.gameService.checkCall(contact.winCondition);
+        }
 
         const audioFile = contact ? contact.audioFile : this.winAudio;
         this.playAudio(audioFile);

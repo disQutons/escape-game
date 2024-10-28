@@ -38,6 +38,7 @@ import { DiscordModule } from './pages/discord/discord.module';
 import { PhoneComponent } from './pages/phone/phone.component';
 import { BottomNavBarComponent } from './component/bottom-nav-bar/bottom-nav-bar.component';
 import { CodeUnlockComponent } from './component/app-grid/code-unlock.component';
+import { GameEndModalComponent } from './component/game-end-modal/game-end-modal.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CodeUnlockComponent } from './component/app-grid/code-unlock.component'
     MessagesComponent,
     PhoneComponent,
     BottomNavBarComponent,
-    CodeUnlockComponent
+    CodeUnlockComponent,
+    GameEndModalComponent
   ],
   imports: [
     BrowserModule,

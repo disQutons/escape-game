@@ -1,0 +1,27 @@
+<canvas #confettiCanvas class="confetti-canvas"></canvas>
+<div class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-content">
+      <h2 class="modal-title">
+        {{ isOptionalEnding ? "Fin optionnelle" : "Félicitations !" }}
+      </h2>
+
+      <p class="modal-message">
+        {{ getMessage() }}
+      </p>
+
+      <div class="modal-actions">
+        <button
+          *ngIf="isOptionalEnding"
+          class="button button-primary"
+          (click)="onContinue()"
+        >
+          Continuer
+        </button>
+        <button class="button button-secondary" (click)="onFinish()">
+          {{ isOptionalEnding ? "Terminer" : "OK" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

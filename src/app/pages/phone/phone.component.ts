@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PhoneService } from 'src/app/service/phone.service';
+import { GameService } from 'src/app/service/game.service';
 import { CallState } from './phone.model';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-phone',
@@ -13,8 +15,11 @@ export class PhoneComponent implements OnInit, OnDestroy {
   currentNumber = '';
   callState: CallState | null = null;
   isDialpadVisible = true;
+  showEndModal = false;
+  isOptionalEnding = false;
 
   private callStateSubscription?: Subscription;
+  private gameStateSubscription?: Subscription;
 
   /**
    * Layout configuration for the phone keypad
@@ -37,7 +42,11 @@ export class PhoneComponent implements OnInit, OnDestroy {
     'error': 'Numéro non attribué'
   };
 
-  constructor(private phoneService: PhoneService) {}
+  constructor(
+    private phoneService: PhoneService,
+    private gameService: GameService,
+    private router: Router
+  ) {}
 
   /**
    * Initializes the component and subscribes to call state changes
@@ -49,6 +58,13 @@ export class PhoneComponent implements OnInit, OnDestroy {
         this.callState = state;
         this.isDialpadVisible = !state.isActive;
       });
+
+    this.gameStateSubscription = this.gameService.getGameState().subscribe(state => {
+      if (state.gameCompleted) {
+        this.showEndModal = true;
+        this.isOptionalEnding = !state.firstCallMade;
+      }
+    });
   }
 
   /**
@@ -56,6 +72,7 @@ export class PhoneComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.callStateSubscription?.unsubscribe();
+    this.gameStateSubscription?.unsubscribe();
   }
 
   /**
@@ -182,5 +199,24 @@ export class PhoneComponent implements OnInit, OnDestroy {
       case 'error': return 'status-error';
       default: return '';
     }
+  }
+
+  /**
+   * Handles the continue game action from the end game modal
+   * Hides the modal and navigates to home
+   */
+  onContinueGame(): void {
+    this.showEndModal = false;
+    this.router.navigate(['/']);
+  }
+
+  /**
+   * Handles the finish game action from the end game modal
+   * Hides the modal and reloads the page to reset the game
+   */
+  onFinishGame(): void {
+    this.showEndModal = false;
+    this.router.navigate(['/']);
+    window.location.reload();
   }
 }
