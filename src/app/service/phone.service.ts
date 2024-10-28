@@ -47,13 +47,31 @@ export class PhoneService {
       pickupDelay: 2,
       requiredApps: ['discord']
     },
+    {
+      id: 5,
+      name: 'Gendarmerie',
+      number: '0240592233',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/gendarmerie_avant.mp3',
+      pickupDelay: 2,
+    },
+    {
+      id: 6,
+      name: 'Gendarmerie',
+      number: '0240592233',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/gendarmerie_apres.mp3',
+      pickupDelay: 2,
+      requiredApps: ['discord'],
+      winCondition: 1
+    },
   ];
 
   // Special number that triggers the game ending sequence when called
   private readonly endingNumber = '0666666666';
   private readonly invalidNumberAudio = 'assets/audio/invalid-number.mp3';
   private readonly winAudio = 'assets/audio/ending-message.mp3';
-  private readonly unknownNumberDuration = 4; // Duration for unknown numbers in seconds
+  private readonly unknownNumberDuration = 2; // Duration for unknown numbers in seconds
 
   private callStateSubject = new BehaviorSubject<CallState>({
     isActive: false,
