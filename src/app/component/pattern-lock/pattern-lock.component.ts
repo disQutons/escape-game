@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import { MusicService } from 'src/app/service/music.service';
 declare var PatternLock: any;
 @Component({
   selector: 'app-pattern-lock',
@@ -14,7 +15,7 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
 
   audio: HTMLAudioElement;
 
-  constructor() {
+  constructor(private musicService: MusicService) {
     this.audio = new Audio();
     this.audio.src = './assets/unlock_sound.wav'; // Relative path to the audio file
     this.audio.load(); // Preload the audio
@@ -39,6 +40,7 @@ export class PatternLockComponent implements OnInit, AfterViewInit{
               me.onSuccess()
               me.playUnlockSound();
               this.success()
+              me.musicService.play();
             }
           } else {
             me.isMatched = false;

@@ -58,10 +58,9 @@ export class GameService {
       firstCallMade: false,
       secondCallMade: false,
       gameCompleted: false,
-    });
-    this.router.navigate(['/']);
-    this.appService.resetApps();
-    window.location.reload();
+    });  
+    this.appService.resetApps();    
+    window.location.href = '/';
   }
 
   continueGame() {
