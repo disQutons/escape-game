@@ -355,7 +355,7 @@ export class MessageService {
       conversation: [
         { type: 'text', content: 'Le service client disQutons reste à votre service. En cas de besoin, envoyez-nous un message avec le document qui bloque', sent: true, date: '2024-06-12T10:20:30Z' },
         { type: 'text', content: 'Envoyez le chiffre "1" et le nom du document pour un premier coup de main', sent: true, date: '2024-06-12T10:20:30Z' },
-        { type: 'text', content: 'Envoyez le chiffre "2" et le nom du document pour un second une iade plus précise', sent: true, date: '2024-06-12T10:20:30Z' },
+        { type: 'text', content: 'Envoyez le chiffre "2" et le nom du document pour une aide plus précise', sent: true, date: '2024-06-12T10:20:30Z' },
         { type: 'text', content: 'Envoyez "solution" et le nom du document pour une prise en charge complète par nos service', sent: true, date: '2024-06-12T10:20:30Z' },
       
       ]
