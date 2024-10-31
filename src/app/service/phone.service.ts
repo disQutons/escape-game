@@ -47,6 +47,24 @@ export class PhoneService {
       pickupDelay: 2,
       requiredApps: ['discord']
     },
+    {
+      id: 5,
+      name: 'Gendarmerie',
+      number: '0240592233',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/gendarmerie_avant.mp3',
+      pickupDelay: 2,
+    },
+    {
+      id: 6,
+      name: 'Gendarmerie',
+      number: '0240592233',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/gendarmerie_apres.mp3',
+      pickupDelay: 2,
+      requiredApps: ['discord'],
+      winCondition: 1
+    },
   ];
 
   // Special number that triggers the game ending sequence when called
