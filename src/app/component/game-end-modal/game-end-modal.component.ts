@@ -12,20 +12,27 @@ export class GameEndModalComponent implements AfterViewInit, OnDestroy {
   @Output() finish = new EventEmitter<void>();
   @ViewChild('confettiCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
+  private confettiInitialized = false;
+
   constructor(private confettiService: ConfettiService) {}
 
   ngAfterViewInit() {
-    this.confettiService.init(this.canvasRef.nativeElement);
-    setTimeout(() => {
-      const rect = this.canvasRef.nativeElement.getBoundingClientRect();
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      this.confettiService.explode(centerX, centerY);
-    }, 400);
+    if (!this.isOptionalEnding) {
+      this.confettiService.init(this.canvasRef.nativeElement);
+      this.confettiInitialized = true;
+      setTimeout(() => {
+        const rect = this.canvasRef.nativeElement.getBoundingClientRect();
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        this.confettiService.explode(centerX, centerY);
+      }, 400);
+    }
   }
 
   ngOnDestroy() {
-    this.confettiService.cleanup();
+    if (this.confettiInitialized) {
+      this.confettiService.cleanup();
+    }
   }
 
   getMessage(): string {

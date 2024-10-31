@@ -29,17 +29,17 @@ export class PhoneComponent implements OnInit, OnDestroy {
     ['1', '2', '3'],
     ['4', '5', '6'],
     ['7', '8', '9'],
-    ['*', '0', '#']
+    ['*', '0', '#'],
   ];
 
   /**
    * Maps call status codes to their display messages
    */
   readonly callStatusMessages = {
-    'dialing': 'Appel en cours...',
-    'connected': 'En appel',
-    'ended': 'Appel terminé',
-    'error': 'Numéro non attribué'
+    dialing: 'Appel en cours...',
+    connected: 'En appel',
+    ended: 'Appel terminé',
+    error: 'Numéro non attribué',
   };
 
   constructor(
@@ -59,12 +59,19 @@ export class PhoneComponent implements OnInit, OnDestroy {
         this.isDialpadVisible = !state.isActive;
       });
 
-    this.gameStateSubscription = this.gameService.getGameState().subscribe(state => {
-      if (state.gameCompleted) {
-        this.showEndModal = true;
-        this.isOptionalEnding = !state.firstCallMade;
-      }
-    });
+    this.gameStateSubscription = this.gameService
+      .getGameState()
+      .subscribe((state) => {
+        if (state.gameCompleted) {
+          // Both calls have been made
+          this.showEndModal = true;
+          this.isOptionalEnding = false;
+        } else if (state.secondCallMade && !state.firstCallMade) {
+          // Second call made without first call
+          this.showEndModal = true;
+          this.isOptionalEnding = true;
+        }
+      });
   }
 
   /**
@@ -175,7 +182,9 @@ export class PhoneComponent implements OnInit, OnDestroy {
   formatDuration(seconds: number): string {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds
+      .toString()
+      .padStart(2, '0')}`;
   }
 
   /**
@@ -192,12 +201,16 @@ export class PhoneComponent implements OnInit, OnDestroy {
    */
   getStatusClass(): string {
     if (!this.callState) return '';
-    
+
     switch (this.callState.status) {
-      case 'dialing': return 'status-dialing';
-      case 'connected': return 'status-connected';
-      case 'error': return 'status-error';
-      default: return '';
+      case 'dialing':
+        return 'status-dialing';
+      case 'connected':
+        return 'status-connected';
+      case 'error':
+        return 'status-error';
+      default:
+        return '';
     }
   }
 

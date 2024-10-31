@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, timer, Subscription } from 'rxjs';
 import { PhoneContact, CallState } from '../pages/phone/phone.model';
 import { AppService } from './app.service';
 import { GameService } from './game.service';
+import { MusicService } from './music.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,6 @@ export class PhoneService {
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/fleuriste-prof.mp3',
       pickupDelay: 2,
-      requiredApps: ['discord'],
       winCondition: 1
     },
     {
@@ -84,10 +84,12 @@ export class PhoneService {
   private durationTimer?: Subscription;
   private startTime?: number;
   private callTimeout?: NodeJS.Timeout;
+  private wasMusicPlaying: boolean = false;
 
   constructor(
     private appService: AppService,
-    private gameService: GameService
+    private gameService: GameService,
+    private musicService: MusicService
   ) {}
 
   /**
@@ -116,6 +118,11 @@ export class PhoneService {
     this.stopTimer();
     this.clearCallTimeout();
     this.stopRingtone();
+
+    this.wasMusicPlaying = this.musicService.isPlaying();
+    if (this.wasMusicPlaying) {
+      this.musicService.pause();
+    }
 
     if (!this.validateFrenchPhoneNumber(number)) {
       this.handleInvalidNumber();
@@ -312,6 +319,10 @@ export class PhoneService {
       status: 'ended',
       currentDuration: 0,
     });
+
+    if (this.wasMusicPlaying) {
+      this.musicService.play();
+    }
   }
 
   /**
