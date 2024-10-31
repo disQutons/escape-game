@@ -34,7 +34,7 @@ export class DiscordComponent {
   currentUser: User = {
     id: 1,
     username: 'Chase',
-    icon: 'assets/pictures/story/antoine_selfie.jpg',
+    icon: 'assets/pictures/story/antoine_profil.jpg',
     createdAt: new Date().toISOString(),
     status: 'online',
   };
