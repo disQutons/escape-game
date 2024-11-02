@@ -36,4 +36,3 @@ jobs:
           folder: dist/escape-game
           branch: gh-pages
           clean: true
-          @delete-branch: true
