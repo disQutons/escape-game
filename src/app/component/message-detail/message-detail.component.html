@@ -3,17 +3,18 @@
     <app-story-circle class="avatar" [story]="selectedMessage?.user" [size]="50"></app-story-circle>
     <h4>{{ selectedMessage?.name }}</h4>
   </div>
-  <div class="messages">
+  <div class="messages" #messagesContainer>
     <div *ngFor="let msg of selectedMessage?.conversation">
       <div class="message-date">
         <p>{{ msg.date | date:'medium' }}</p>
       </div>
       <div class="message" [ngClass]="{'sent': msg.sent, 'received': !msg.sent}">
-        <p>{{ msg.content }}</p></div>
+        <p>{{ msg.content }}</p>
+      </div>
     </div>
   </div>
   <div class="message-input">
-    <input type="text" placeholder="Type a message" [(ngModel)]="newMessage">
+    <input type="text" placeholder="Type a message" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
     <button (click)="sendMessage()">Send</button>
   </div>
 </div>

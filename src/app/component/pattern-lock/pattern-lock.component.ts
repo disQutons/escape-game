@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import { MusicService } from 'src/app/service/music.service';
+import { MusicService } from '../../../app/service/music.service';
 declare var PatternLock: any;
 @Component({
   selector: 'app-pattern-lock',

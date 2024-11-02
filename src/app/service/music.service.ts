@@ -8,7 +8,7 @@ export class MusicService {
   private currentTime: number = 0;
 
   constructor() {
-    this.audio = new Audio('assets/audio/game-music.mp3'); 
+    this.audio = new Audio('assets/audio/musique_ambiance.mp3'); 
     this.audio.loop = true;
     this.audio.load();
   }

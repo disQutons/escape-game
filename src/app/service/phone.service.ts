@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, timer, Subscription } from 'rxjs';
 import { PhoneContact, CallState } from '../pages/phone/phone.model';
 import { AppService } from './app.service';
@@ -89,6 +89,7 @@ export class PhoneService {
   constructor(
     private appService: AppService,
     private gameService: GameService,
+    @Inject(MusicService)
     private musicService: MusicService
   ) {}
 

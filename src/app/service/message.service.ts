@@ -8,20 +8,6 @@ import { Message, MessageContent } from '../models/message.model';
 export class MessageService {
 
   private hints: { [platform: string]: { [key: string]: string } } = {
-    'instagram': {
-      'filter': 'Try using different filters to reveal hidden messages',
-      'story': 'Check the stories for time-sensitive clues',
-      'dm': 'Direct messages might contain private information',
-      'hashtag': 'Popular hashtags could lead to community-shared hints',
-      'bio': 'User bios might contain coded messages'
-    },
-    'discord': {
-      'server': 'Different servers might have different pieces of the puzzle',
-      'channel': 'Check all channels for scattered clues',
-      'role': 'User roles might grant access to hidden information',
-      'bot': 'Interact with bots for automated hints',
-      'voice': 'Voice channels might have audio clues'
-    },
     'generic': {
       '1 bulletin': 'Peut être qu\'avec un autre document, on pourrait retrouver qui est la professeure principale ?',
       '2 bulletin': 'Avec l\'emploi du temps d\'Antoine, on devrait pouvoir retrouver sa professeure principale.',
@@ -402,7 +388,6 @@ export class MessageService {
       message.conversation.push(newMessage);
       // Check for hints
       const hint = this.checkForHint(content, platform);
-      console.log(hint);
       if (hint) {
         const hintMessage: MessageContent = { type: 'text', content: hint, sent: false, date: new Date().toISOString() };
         message.conversation.push(hintMessage);
@@ -412,14 +397,48 @@ export class MessageService {
     return of(null);
   }
 
+  private getHintKey(input: string): string | null {
+    // Normalize input to lowercase and trim spaces
+    input = input.toLowerCase().trim();
+    
+    // Try to match "number word" or "word number" or "solution word" pattern
+    const parts = input.split(' ');
+    
+    if (parts.length !== 2) return null;
+    
+    let key: string | null = null;
+    
+    // Case 1: "1 bulletin" format
+    if (['1', '2'].includes(parts[0]) && parts[1]) {
+      key = `${parts[0]} ${parts[1]}`;
+    }
+    // Case 2: "bulletin 1" format
+    else if (['1', '2'].includes(parts[1]) && parts[0]) {
+      key = `${parts[1]} ${parts[0]}`;
+    }
+    // Case 3: "solution bulletin" or "bulletin solution" format
+    else if (parts[0] === 'solution' || parts[1] === 'solution') {
+      key = 'solution ' + (parts[0] === 'solution' ? parts[1] : parts[0]);
+    }
+    
+    return key;
+  }
+
   private checkForHint(message: string, platform: 'instagram' | 'discord' | 'generic'): string | null {
+    // Split message into words and try each pair of consecutive words
     const words = message.toLowerCase().split(' ');
-    for (const word of words) {
-      if (this.hints[platform][word]) {
-        return this.hints[platform][word];
-      }
-      if (this.hints['generic'][word]) {
-        return this.hints['generic'][word];
+    
+    for (let i = 0; i < words.length - 1; i++) {
+      const twoWordPhrase = words[i] + ' ' + words[i + 1];
+      const hintKey = this.getHintKey(twoWordPhrase);
+      
+      if (hintKey) {
+        if (this.hints[platform]?.[hintKey]) {
+          return this.hints[platform][hintKey];
+        }
+        if (this.hints['generic']?.[hintKey]) {
+          return this.hints['generic'][hintKey];
+        }
       }
     }
     return null;
