@@ -25,10 +25,14 @@ jobs:
         run: npm install -g @angular/cli
 
       - name: Build
-        run: ng build --configuration=production --base-href "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        run: ng build --configuration=production --base-href="/escape-game/"
+
+      - name: Add .nojekyll file
+        run: touch dist/escape-game/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist/escape-game
           branch: gh-pages
+          clean: true 
