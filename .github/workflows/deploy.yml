@@ -25,7 +25,7 @@ jobs:
         run: npm install -g @angular/cli
 
       - name: Build
-        run: ng build --configuration=production --base-href="/escape-game/"
+        run: ng build --configuration=production --base-href="/"
 
       - name: Add .nojekyll file
         run: touch dist/escape-game/.nojekyll
