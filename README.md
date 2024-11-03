@@ -6,7 +6,7 @@ L'Escape Game traite de sujets cruciaux tels que les cyberviolences et les injon
 
 ## Première version
 
-Ce projet représente la version initiale de l'application, développée en mode statique avec le framework Angular. Cette version a pour objectif de simuler les fonctionnalités de l'application finale et de servir de base pour les tests et l'évaluation des interactions utilisateur. Elle permet de visualiser l'interface utilisateur et de simuler les flux de navigation, sans intégration avec une base de données ou des services backend. L'application est accessible en ligne à l'adresse suivante : [https://tamraouisebti.github.io/escape-game.](https://disqutons.fr/url/appantoine)
+Ce projet représente la version initiale de l'application, développée en mode statique avec le framework Angular. Cette version a pour objectif de simuler les fonctionnalités de l'application finale et de servir de base pour les tests et l'évaluation des interactions utilisateur. Elle permet de visualiser l'interface utilisateur et de simuler les flux de navigation, sans intégration avec une base de données ou des services backend. L'application est accessible en ligne à l'adresse suivante : [https://disqutons.github.io/escape-game/#/.](https://disqutons.github.io/escape-game/#/)
 
 ## Lancer le projet avec Docker
 
