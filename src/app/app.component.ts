@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { RefreshDetectionService } from './services/refresh-detection.service';
 
 
 @Component({
@@ -7,5 +8,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
+  constructor(private refreshDetectionService: RefreshDetectionService) {}
 
+  ngOnInit() {
+    this.refreshDetectionService.detectAndRedirect();
+  }
 }
