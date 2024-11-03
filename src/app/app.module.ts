@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PatternLockComponent } from './component/pattern-lock/pattern-lock.component';
 import { ClockComponent } from './component/clock/clock.component';
 import { BarComponent } from './component/bar/bar.component';
-import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { CommonModule, NgOptimizedImage, LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { AppGridComponent } from './component/app-grid/app-grid.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from "@angular/material/grid-list";
@@ -86,10 +86,16 @@ import { GameEndModalComponent } from './component/game-end-modal/game-end-modal
     DiscordModule,
     ReactiveFormsModule
   ],
-  providers: [{
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: HammerGestureConfig
-  }],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerGestureConfig
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
