@@ -21,7 +21,7 @@ export class PhoneService {
     },
     {
       id: 2,
-      name: '02 40 12 35 78',
+      name: 'Josh',
       number: '0240123578',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/josh-antoine.mp3',
@@ -36,7 +36,6 @@ export class PhoneService {
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/club.mp3',
       pickupDelay: 3,
-      requiredApps: ['instagram']
     },
     {
       id: 4,
