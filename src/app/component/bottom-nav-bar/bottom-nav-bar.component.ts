@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -8,18 +8,24 @@ import { filter } from 'rxjs/operators';
   templateUrl: './bottom-nav-bar.component.html',
   styleUrls: ['./bottom-nav-bar.component.css'],
 })
-export class BottomNavBarComponent {
+export class BottomNavBarComponent implements OnInit {
   isHomeActive = false;
   showRipple = false;
   rippleX = 0;
   rippleY = 0;
+  isDesktop = false;
 
   constructor(private location: Location, private router: Router) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        this.isHomeActive = event.url === '/home' || event.url === '/';
+        this.isHomeActive = event.url === '/' || event.url === '/';
       });
+  }
+
+  ngOnInit(): void {
+    const userAgent = navigator.userAgent;
+    this.isDesktop = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
   }
 
   goBack(): void {
@@ -28,7 +34,7 @@ export class BottomNavBarComponent {
   }
 
   goHome(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
     this.createRipple('home');
   }
 
