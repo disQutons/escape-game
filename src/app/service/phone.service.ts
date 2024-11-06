@@ -19,7 +19,7 @@ export class PhoneService {
       pickupDelay: 2,
       winCondition: 1
     },
-    {
+    /*{
       id: 2,
       name: 'Josh',
       number: '0240123578',
@@ -36,17 +36,19 @@ export class PhoneService {
       pickupDelay: 3,
       requiredApps: ['discord'],
       winCondition: 2
+    },*/
+    {
+      id: 3,
+      name: 'Josh',
+      number: '0240123578',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/josh-antoine.mp3',
+      pickupDelay: 3,
+      requiredApps: ['discord'],
+      winCondition: 2
     },
     {
       id: 4,
-      name: 'Club de Tennis',
-      number: '0240859674',
-      avatar: 'assets/avatars/profil_default.png',
-      audioFile: 'assets/audio/club.mp3',
-      pickupDelay: 3,
-    },
-    {
-      id: 5,
       name: '02 40 12 34 56',
       number: '0240123456',
       avatar: 'assets/avatars/profil_default.png',
@@ -55,7 +57,7 @@ export class PhoneService {
       requiredApps: ['discord']
     },
     {
-      id: 6,
+      id: 5,
       name: 'Police',
       number: '0240592233',
       avatar: 'assets/avatars/profil_default.png',
@@ -63,7 +65,7 @@ export class PhoneService {
       pickupDelay: 2,
     },
     {
-      id: 7,
+      id: 6,
       name: 'Police',
       number: '0240592233',
       avatar: 'assets/avatars/profil_default.png',
