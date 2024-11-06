@@ -19,8 +19,26 @@ export class PhoneService {
       pickupDelay: 2,
       winCondition: 1
     },
-    {
+    /*{
       id: 2,
+      name: 'Josh',
+      number: '0240123578',
+      avatar: 'assets/picture/story/josh_profil.jpg',
+      audioFile: 'assets/audio/poissonnerie.mp3',
+      pickupDelay: 3
+    },
+    {
+      id: 3,
+      name: 'Josh',
+      number: '0240123578',
+      avatar: 'assets/picture/story/josh_profil.jpg',
+      audioFile: 'assets/audio/josh-antoine.mp3',
+      pickupDelay: 3,
+      requiredApps: ['discord'],
+      winCondition: 2
+    },*/
+    {
+      id: 3,
       name: 'Josh',
       number: '0240123578',
       avatar: 'assets/avatars/profil_default.png',
@@ -28,14 +46,6 @@ export class PhoneService {
       pickupDelay: 3,
       requiredApps: ['discord'],
       winCondition: 2
-    },
-    {
-      id: 3,
-      name: 'Club de Tennis',
-      number: '0240859674',
-      avatar: 'assets/avatars/profil_default.png',
-      audioFile: 'assets/audio/club.mp3',
-      pickupDelay: 3,
     },
     {
       id: 4,
@@ -48,7 +58,7 @@ export class PhoneService {
     },
     {
       id: 5,
-      name: 'Gendarmerie',
+      name: 'Police',
       number: '0240592233',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/gendarmerie_avant.mp3',
@@ -56,7 +66,7 @@ export class PhoneService {
     },
     {
       id: 6,
-      name: 'Gendarmerie',
+      name: 'Police',
       number: '0240592233',
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/gendarmerie_apres.mp3',
@@ -69,7 +79,8 @@ export class PhoneService {
   // Special number that triggers the game ending sequence when called
   private readonly endingNumber = '0666666666';
   private readonly invalidNumberAudio = 'assets/audio/invalid-number.mp3';
-  private readonly winAudio = 'assets/audio/ending-message.mp3';
+  //TODO à supprimer ?
+  private readonly winAudio = 'assets/audio/invalid-number.mp3';
   private readonly unknownNumberDuration = 2; // Duration for unknown numbers in seconds
 
   private callStateSubject = new BehaviorSubject<CallState>({
@@ -236,6 +247,7 @@ export class PhoneService {
           this.gameService.checkCall(contact.winCondition);
         }
 
+        //TODO winaudio à supprimer ?
         const audioFile = contact ? contact.audioFile : this.winAudio;
         this.playAudio(audioFile);
 
