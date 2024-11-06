@@ -69,7 +69,8 @@ export class PhoneService {
   // Special number that triggers the game ending sequence when called
   private readonly endingNumber = '0666666666';
   private readonly invalidNumberAudio = 'assets/audio/invalid-number.mp3';
-  private readonly winAudio = 'assets/audio/ending-message.mp3';
+  //TODO à supprimer ?
+  //private readonly winAudio = 'assets/audio/ending-message.mp3';
   private readonly unknownNumberDuration = 2; // Duration for unknown numbers in seconds
 
   private callStateSubject = new BehaviorSubject<CallState>({
@@ -236,8 +237,9 @@ export class PhoneService {
           this.gameService.checkCall(contact.winCondition);
         }
 
-        const audioFile = contact ? contact.audioFile : this.winAudio;
-        this.playAudio(audioFile);
+        //TODO à supprimer ?
+        //const audioFile = contact ? contact.audioFile : this.winAudio;
+        //this.playAudio(audioFile);
 
         this.startTime = Date.now();
         this.durationTimer = timer(0, 1000).subscribe(() => {
