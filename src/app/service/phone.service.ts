@@ -26,8 +26,6 @@ export class PhoneService {
       avatar: 'assets/avatars/josh_profil.png',
       audioFile: 'assets/audio/poissonnerie.mp3',
       pickupDelay: 3,
-      requiredApps: ['discord'],
-      winCondition: 2
     },
     {
       id: 3,
