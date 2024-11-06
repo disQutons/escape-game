@@ -3,5 +3,8 @@
   <app-clock></app-clock>
   <app-pattern-lock *ngIf="!patternMatch" [onSuccess]="onPatternSuccess"></app-pattern-lock>
   <app-app-grid *ngIf="patternMatch"></app-app-grid>
+  <div class="nav-container">
+    <app-bottom-nav-bar></app-bottom-nav-bar>
+  </div>
 </div>
 

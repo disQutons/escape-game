@@ -7,7 +7,7 @@
       <div class="signal-bar" [style.height]="'16px'"></div>
     </div>
   </div>
-  <div class="battery">
+  <div class="battery" [class.blink]="isBlinking">
     <i class="fas" [ngClass]="{
       'fa-battery-empty': batteryPercentage <= 0,
       'fa-battery-quarter': batteryPercentage > 0 && batteryPercentage <= 25,
@@ -15,6 +15,6 @@
       'fa-battery-three-quarters': batteryPercentage > 50 && batteryPercentage <= 75,
       'fa-battery-full': batteryPercentage > 75
     }"></i>
-    <span>{{ batteryPercentage | number: '1.0-0' }}%</span>
+    <span class="battery-percentage">{{ batteryPercentage | number: '1.0-0' }}%</span>
   </div>
 </div>

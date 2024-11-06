@@ -1,32 +1,51 @@
 .top-bar {
-  background-color: transparent;
-  color: black;
-  padding: 10px;
-  height: 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 10px;
+  background-color: transparent;
+  color: black;
 }
 
-.battery, .network {
-  font-size: 14px;
-}
-
-.signal-strength {
-  color: green; /* Adjust color based on signal strength */
-}
-
-.battery i {
-  font-size: 16px;
-  margin-right: 5px;
+.network {
+  font-size: 12px;
 }
 
 .network .signal-strength {
   display: flex;
-  align-items: flex-end; /* Align bars to the bottom */
+  align-items: flex-end;
+  transform: scale(0.8);
 }
 
 .signal-bar {
-  width: 5px; /* Adjust the width of each bar */
-  background-color: black; /* Set the color of the bars */
-  margin-right: 2px; /* Add spacing between bars */
+  width: 4px;
+  margin-right: 2px;
+  background-color: black;
+}
+
+.battery {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+}
+
+.battery i {
+  font-size: 29px;
+  margin-right: 8px;
+}
+
+.battery-percentage {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 0.5s ease-in-out;
 }

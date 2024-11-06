@@ -8,7 +8,8 @@ import { DiscordServerListComponent } from './discord-server-list/discord-server
 import { DiscordMessageListComponent } from './discord-message-list/discord-message-list.component';
 import { DiscordConversationComponent } from './discord-conversation/discord-conversation.component';
 import { DiscordServerErrorComponent } from './discord-server-list/server-error.component';
-import { HighlightPipe } from 'src/app/pipe/highlight.pipe';
+import { HighlightPipe } from '../../../app/pipe/highlight.pipe';
+import { SharedModule } from '../../../app/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HighlightPipe } from 'src/app/pipe/highlight.pipe';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     DiscordComponent

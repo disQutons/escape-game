@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -9,11 +9,12 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./bottom-nav-bar.component.css'],
 })
 export class BottomNavBarComponent implements OnInit {
+  @Input() backgroundColor?: string; 
+
   isHomeActive = false;
   showRipple = false;
   rippleX = 0;
   rippleY = 0;
-  isDesktop = false;
 
   constructor(private location: Location, private router: Router) {
     this.router.events
@@ -25,7 +26,6 @@ export class BottomNavBarComponent implements OnInit {
 
   ngOnInit(): void {
     const userAgent = navigator.userAgent;
-    this.isDesktop = !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
   }
 
   goBack(): void {

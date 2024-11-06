@@ -32,12 +32,100 @@
 .number-display {
   font-size: 32px;
   text-align: center;
-  margin: 20px 0 40px 0;
+  margin: 20px 0 20px 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
   color: #2d3748;
   letter-spacing: 2px;
 }
 
+/* Nouveaux styles pour l'historique */
+.history-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.history-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f0f0f0;
+  color: #4a5568;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.history-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.history-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.history-button.active {
+  background-color: #e0e0e0;
+  color: #2d3748;
+}
+
+.history-panel {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-list {
+  padding: 8px;
+}
+
+.history-item {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item:hover {
+  background-color: #edf2f7;
+}
+
+.history-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-number {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.history-details {
+  display: flex;
+  gap: 12px;
+  color: #718096;
+  font-size: 14px;
+}
+
+/* Styles existants */
 .keypad {
   display: flex;
   flex-direction: column;
@@ -193,6 +281,13 @@
   color: #4a5568;
 }
 
+.call-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
 .end-call {
   width: 64px;
   height: 64px;
@@ -205,7 +300,6 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin: auto;
   box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
 }
 
@@ -226,4 +320,89 @@
 
 .status-error .call-status {
   color: #ff4444;
+}
+
+.nav-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Styles pour la scrollbar de l'historique */
+.history-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-panel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.history-panel::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.history-panel::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Adaptation responsive pour petits écrans */
+@media screen and (max-width: 375px) {
+  .keypad-button {
+    width: 65px;
+    height: 65px;
+    font-size: 24px;
+  }
+
+  .history-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .number-display {
+    font-size: 28px;
+    margin: 15px 0 15px 0;
+  }
+
+  .history-panel {
+    max-height: 180px;
+  }
+
+  .history-number {
+    font-size: 14px;
+  }
+
+  .history-details {
+    font-size: 12px;
+  }
+}
+
+/* Animation pour l'apparition du panneau d'historique */
+.history-panel {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style actif pour le bouton d'historique */
+.history-button.active {
+  background-color: #e2e8f0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+}
+
+/* Ajustement du keypad quand l'historique est affiché */
+.keypad.with-history {
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
 }

@@ -15,4 +15,11 @@ export interface CallState {
   status: 'dialing' | 'connected' | 'ended' | 'error';
   currentDuration: number;
   isGameEnding?: boolean;
+  dialedNumber?: string;
+}
+
+export interface CallHistory {
+  number: string;
+  timestamp: Date;
+  duration: number;
 }
