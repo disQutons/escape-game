@@ -125,7 +125,6 @@
   font-size: 14px;
 }
 
-/* Styles existants */
 .keypad {
   display: flex;
   flex-direction: column;
@@ -328,7 +327,6 @@
   width: 100%;
 }
 
-/* Styles pour la scrollbar de l'historique */
 .history-panel::-webkit-scrollbar {
   width: 8px;
 }
@@ -347,7 +345,6 @@
   background: #a0aec0;
 }
 
-/* Adaptation responsive pour petits écrans */
 @media screen and (max-width: 375px) {
   .keypad-button {
     width: 65px;
@@ -378,7 +375,6 @@
   }
 }
 
-/* Animation pour l'apparition du panneau d'historique */
 .history-panel {
   animation: slideDown 0.3s ease-out;
 }
@@ -394,14 +390,12 @@
   }
 }
 
-/* Style actif pour le bouton d'historique */
 .history-button.active {
   background-color: #e2e8f0;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   transform: translateY(0);
 }
 
-/* Ajustement du keypad quand l'historique est affiché */
 .keypad.with-history {
   transform: scale(0.95);
   transition: transform 0.3s ease;
