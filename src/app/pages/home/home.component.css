@@ -7,3 +7,9 @@
   height: 100vh; /* Adjust height as needed */
   position: relative;
 }
+
+.nav-container{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

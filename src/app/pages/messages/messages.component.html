@@ -2,4 +2,7 @@
   <app-loading *ngIf="isLoading"></app-loading>
   <h2 class="messages-header">Messages</h2>
   <app-message-item *ngFor="let message of messages" [showAvatarCircle]="false" [message]="message" (click)="selectMessage(message)"></app-message-item>
+  <div class="nav-container">
+    <app-bottom-nav-bar  backgroundColor="#a3a0a0f2"></app-bottom-nav-bar>
+  </div>
 </div>

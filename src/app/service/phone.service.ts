@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, timer, Subscription } from 'rxjs';
-import { PhoneContact, CallState } from '../pages/phone/phone.model';
+import { PhoneContact, CallState, CallHistory } from '../pages/phone/phone.model';
 import { AppService } from './app.service';
 import { GameService } from './game.service';
 import { MusicService } from './music.service';
@@ -44,7 +44,6 @@ export class PhoneService {
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/josh-antoine.mp3',
       pickupDelay: 3,
-      requiredApps: ['discord'],
       winCondition: 2
     },
     {
@@ -82,6 +81,7 @@ export class PhoneService {
   //TODO à supprimer ?
   private readonly winAudio = 'assets/audio/invalid-number.mp3';
   private readonly unknownNumberDuration = 2; // Duration for unknown numbers in seconds
+  private readonly MAX_HISTORY = 10;
 
   private callStateSubject = new BehaviorSubject<CallState>({
     isActive: false,
@@ -95,6 +95,7 @@ export class PhoneService {
   private startTime?: number;
   private callTimeout?: NodeJS.Timeout;
   private wasMusicPlaying: boolean = false;
+  private callHistory: CallHistory[] = [];
 
   constructor(
     private appService: AppService,
@@ -139,19 +140,20 @@ export class PhoneService {
       this.handleInvalidNumber();
       return;
     }
+    
     const contact = this.contacts.find((c) => c.number === number);
     const isEndingNumber = number === this.endingNumber;
 
     if (contact) {
       if (this.canAccessContact(contact)) {
-        this.startCall(contact, false);
+        this.startCall(contact, false, number);
       } else {
-        this.startUnknownCall();
+        this.startUnknownCall(number);
       }
     } else if (isEndingNumber) {
-      this.startCall(undefined, true);
+      this.startCall(undefined, true, number);
     } else {
-      this.startUnknownCall();
+      this.startUnknownCall(number);
     }
   }
 
@@ -185,11 +187,12 @@ export class PhoneService {
    * Handles the call flow for unknown numbers
    * Plays ringtone and ends call after specified duration
    */
-  private startUnknownCall(): void {
+  private startUnknownCall(number: string): void {
     this.callStateSubject.next({
       isActive: true,
       status: 'dialing',
       currentDuration: 0,
+      dialedNumber: number
     });
 
     this.playRingtone();
@@ -204,6 +207,7 @@ export class PhoneService {
             isActive: true,
             status: 'dialing',
             currentDuration,
+            dialedNumber: number
           });
         });
 
@@ -220,13 +224,14 @@ export class PhoneService {
    * @param contact The contact being called (undefined for ending number)
    * @param isEndingNumber Boolean indicating if this is the winning call
    */
-  private startCall(contact: PhoneContact | undefined, isEndingNumber: boolean): void {
+  private startCall(contact: PhoneContact | undefined, isEndingNumber: boolean, dialedNumber: string): void {
     this.callStateSubject.next({
       isActive: true,
       contact,
       status: 'dialing',
       currentDuration: 0,
       isGameEnding: isEndingNumber,
+      dialedNumber
     });
 
     this.playRingtone();
@@ -324,6 +329,22 @@ export class PhoneService {
       this.audio.pause();
       this.audio = null;
     }
+
+    if (this.callStateSubject.value.isActive) {
+      const currentState = this.callStateSubject.value;
+      const duration = currentState.currentDuration;
+      let numberToLog: string | undefined;
+
+      if (currentState.contact?.number) {
+        numberToLog = currentState.contact.number;
+      } else if (currentState.dialedNumber) {
+        numberToLog = currentState.dialedNumber;
+      }
+
+      if (numberToLog && duration >= 0 && currentState.status !== 'error') {
+        this.addToHistory(numberToLog, duration);
+      }
+    }
     
     this.startTime = undefined;
     this.callStateSubject.next({
@@ -348,5 +369,23 @@ export class PhoneService {
   private canAccessContact(contact: PhoneContact): boolean {
     if (!contact.requiredApps || contact.requiredApps.length === 0) return true;
     return contact.requiredApps.every(app => this.appService.isAppUnlocked(app));
+  }
+
+  addToHistory(number: string, duration: number): void {
+    const historyEntry: CallHistory = {
+      number,
+      timestamp: new Date(),
+      duration
+    };
+    
+    this.callHistory = [historyEntry, ...this.callHistory.slice(0, this.MAX_HISTORY - 1)];
+  }
+  
+  public getLastNumber(): string {
+    return this.callHistory.length > 0 ? this.callHistory[0].number : '';
+  }
+  
+  getCallHistory(): CallHistory[] {
+    return this.callHistory;
   }
 }

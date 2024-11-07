@@ -66,4 +66,12 @@ export class GameService {
   continueGame() {
     this.router.navigate(['/']);
   }
+
+  getCurrentState(): GameState {
+    return this.gameStateSubject.value;
+  }
+
+  resetPartialState(newState: GameState) {
+    this.gameStateSubject.next(newState);
+  }
 }

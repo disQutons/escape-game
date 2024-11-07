@@ -1,4 +1,4 @@
-<nav *ngIf="isDesktop" class="bottom-nav">
+<nav class="bottom-nav" [ngStyle]="backgroundColor ? {'background-color': backgroundColor} : null">
   <button class="nav-button" (click)="goBack()" aria-label="Retour">
     <svg
       xmlns="http://www.w3.org/2000/svg"

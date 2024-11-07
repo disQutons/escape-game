@@ -1,10 +1,17 @@
-<div class="gallery"><app-bar></app-bar>
-<app-gallery-app-bar></app-gallery-app-bar>
-<div class="gallery-images">
-  <p class="container">
-    <img  class="image" *ngFor="let item of items; index as i"
-         [lightbox]="i"
-         [src]="item.data?.thumb">
-  </p>
-</div>
+<div class="gallery">
+  <app-bar></app-bar>
+  <app-gallery-app-bar></app-gallery-app-bar>
+  <div class="gallery-images">
+    <p class="container">
+      <img
+        class="image"
+        *ngFor="let item of items; index as i"
+        [lightbox]="i"
+        [src]="item.data?.thumb"
+      />
+    </p>
+  </div>
+  <div class="nav-container">
+    <app-bottom-nav-bar  backgroundColor="#a3a0a0f2"></app-bottom-nav-bar>
+  </div>
 </div>
