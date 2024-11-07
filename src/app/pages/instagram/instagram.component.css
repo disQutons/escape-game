@@ -11,3 +11,9 @@
   height: 100%;
   transition: transform 0.5s ease;
 }
+
+.nav-container{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

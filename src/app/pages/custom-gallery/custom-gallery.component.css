@@ -24,3 +24,9 @@
   aspect-ratio: 1 / 1;
   object-fit: contain;
 }
+
+.nav-container{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PhoneService } from 'src/app/service/phone.service';
 import { GameService } from 'src/app/service/game.service';
-import { CallState } from './phone.model';
+import { CallHistory, CallState } from './phone.model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -20,6 +20,9 @@ export class PhoneComponent implements OnInit, OnDestroy {
 
   private callStateSubscription?: Subscription;
   private gameStateSubscription?: Subscription;
+  lastNumber = '';
+  showHistory = false;
+  callHistory: CallHistory[] = [];
 
   /**
    * Layout configuration for the phone keypad
@@ -43,7 +46,7 @@ export class PhoneComponent implements OnInit, OnDestroy {
   };
 
   constructor(
-    private phoneService: PhoneService,
+    public phoneService: PhoneService,
     private gameService: GameService,
     private router: Router
   ) {}
@@ -55,23 +58,29 @@ export class PhoneComponent implements OnInit, OnDestroy {
     this.callStateSubscription = this.phoneService
       .getCallState()
       .subscribe((state) => {
+        const previousState = this.callState;
         this.callState = state;
         this.isDialpadVisible = !state.isActive;
+        
+        if (state.status === 'ended' && previousState?.isActive) {
+          this.currentNumber = '';
+          this.refreshHistory();
+        }
       });
 
     this.gameStateSubscription = this.gameService
       .getGameState()
       .subscribe((state) => {
         if (state.gameCompleted) {
-          // Both calls have been made
           this.showEndModal = true;
           this.isOptionalEnding = false;
         } else if (state.secondCallMade && !state.firstCallMade) {
-          // Second call made without first call
           this.showEndModal = true;
           this.isOptionalEnding = true;
         }
       });
+
+    this.refreshHistory();
   }
 
   /**
@@ -139,6 +148,7 @@ export class PhoneComponent implements OnInit, OnDestroy {
   endCall(): void {
     this.phoneService.endCall();
     this.currentNumber = '';
+    this.refreshHistory();
   }
 
   /**
@@ -219,7 +229,18 @@ export class PhoneComponent implements OnInit, OnDestroy {
    * Hides the modal and navigates to home
    */
   onContinueGame(): void {
+    if (this.callState?.isActive) {
+      this.phoneService.endCall();
+    }
+  
     this.showEndModal = false;
+    
+    const currentState = this.gameService.getCurrentState();
+    this.gameService.resetPartialState({
+      ...currentState,
+      secondCallMade: false
+    });
+    
     this.router.navigate(['/']);
   }
 
@@ -231,5 +252,22 @@ export class PhoneComponent implements OnInit, OnDestroy {
     this.showEndModal = false;
     this.router.navigate(['/']);
     window.location.reload();
+  }
+
+  redial(): void {
+    const lastNumber = this.phoneService.getLastNumber();
+    if (lastNumber) {
+      this.currentNumber = lastNumber;
+      this.initiateCall();
+    }
+  }
+  
+  toggleHistory(): void {
+    this.showHistory = !this.showHistory;
+    this.refreshHistory();
+  }
+
+  private refreshHistory(): void {
+    this.callHistory = this.phoneService.getCallHistory();
   }
 }

@@ -36,9 +36,9 @@ import { GalleryAppBarComponent } from './pages/custom-gallery/gallery-app-bar/g
 import { MessagesComponent } from './pages/messages/messages.component';
 import { DiscordModule } from './pages/discord/discord.module';
 import { PhoneComponent } from './pages/phone/phone.component';
-import { BottomNavBarComponent } from './component/bottom-nav-bar/bottom-nav-bar.component';
 import { CodeUnlockComponent } from './component/app-grid/code-unlock.component';
 import { GameEndModalComponent } from './component/game-end-modal/game-end-modal.component';
+import { SharedModule } from './shared.module';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,6 @@ import { GameEndModalComponent } from './component/game-end-modal/game-end-modal
     GalleryAppBarComponent,
     MessagesComponent,
     PhoneComponent,
-    BottomNavBarComponent,
     CodeUnlockComponent,
     GameEndModalComponent
   ],
@@ -84,7 +83,8 @@ import { GameEndModalComponent } from './component/game-end-modal/game-end-modal
     GalleryModule,
     LightboxModule,
     DiscordModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [
     {
