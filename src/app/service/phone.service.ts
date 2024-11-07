@@ -38,7 +38,7 @@ export class PhoneService {
       winCondition: 2
     },
     {
-      id: 7,
+      id: 4,
       name: 'Tennis',
       number: '0240859674',
       avatar: 'assets/avatars/profil_default.png',
