@@ -38,14 +38,12 @@ export class PhoneService {
       winCondition: 2
     },
     {
-      id: 4,
-      name: 'Josh',
-      number: '0240123578',
+      id: 7,
+      name: 'Tennis',
+      number: '0240859674',
       avatar: 'assets/avatars/profil_default.png',
-      audioFile: 'assets/audio/josh-antoine.mp3',
-      pickupDelay: 3,
-      requiredApps: ['discord'],
-      winCondition: 2
+      audioFile: 'assets/audio/club.mp3',
+      pickupDelay: 2,
     },
     {
       id: 5,
