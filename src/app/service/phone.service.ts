@@ -19,7 +19,7 @@ export class PhoneService {
       pickupDelay: 2,
       winCondition: 1
     },
-    /*{
+    {
       id: 2,
       name: 'Josh',
       number: '0240123578',
@@ -35,15 +35,6 @@ export class PhoneService {
       audioFile: 'assets/audio/josh-antoine.mp3',
       pickupDelay: 3,
       requiredApps: ['discord'],
-      winCondition: 2
-    },*/
-    {
-      id: 3,
-      name: 'Josh',
-      number: '0240123578',
-      avatar: 'assets/avatars/profil_default.png',
-      audioFile: 'assets/audio/josh-antoine.mp3',
-      pickupDelay: 3,
       winCondition: 2
     },
     {
@@ -74,6 +65,7 @@ export class PhoneService {
       winCondition: 1
     },
   ];
+  
 
   // Special number that triggers the game ending sequence when called
   private readonly endingNumber = '0666666666';
@@ -130,32 +122,37 @@ export class PhoneService {
     this.stopTimer();
     this.clearCallTimeout();
     this.stopRingtone();
-
+  
     this.wasMusicPlaying = this.musicService.isPlaying();
     if (this.wasMusicPlaying) {
       this.musicService.pause();
     }
-
+  
     if (!this.validateFrenchPhoneNumber(number)) {
       this.handleInvalidNumber();
       return;
     }
-    
-    const contact = this.contacts.find((c) => c.number === number);
-    const isEndingNumber = number === this.endingNumber;
-
-    if (contact) {
-      if (this.canAccessContact(contact)) {
-        this.startCall(contact, false, number);
-      } else {
-        this.startUnknownCall(number);
-      }
-    } else if (isEndingNumber) {
+  
+    const matchingContacts = this.contacts.filter(c => c.number === number);
+    const accessibleContacts = matchingContacts.filter(c => this.canAccessContact(c));
+  
+    if (accessibleContacts.length > 0) {
+      accessibleContacts.sort((a, b) => {
+        const aApps = a.requiredApps ? a.requiredApps.length : 0;
+        const bApps = b.requiredApps ? b.requiredApps.length : 0;
+        return bApps - aApps;
+      });
+      const contact = accessibleContacts[0];
+      this.startCall(contact, false, number);
+    } else if (matchingContacts.length > 0) {
+      this.startUnknownCall(number);
+    } else if (number === this.endingNumber) {
       this.startCall(undefined, true, number);
     } else {
       this.startUnknownCall(number);
     }
   }
+   
 
   /**
    * Plays the ringtone audio with loop functionality
