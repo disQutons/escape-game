@@ -4,7 +4,7 @@ L'association disQutons a développé un Escape Game destiné aux collégiens et
 
 L'Escape Game traite de sujets cruciaux tels que les cyberviolences et les injonctions de genre. Après chaque session de jeu, un échange est prévu avec les jeunes participants, animé par un membre du personnel éducatif ou un représentant de l'association disQutons.
 
-##Licence
+## Licence
 CC BY-NC-SA 4.0
 Pour rendre ce sujet le plus accessible possible, nous avons choisi d’en assouplir la propriété intellectuelle.
 
