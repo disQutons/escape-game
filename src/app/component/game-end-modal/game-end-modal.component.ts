@@ -37,9 +37,9 @@ export class GameEndModalComponent implements AfterViewInit, OnDestroy {
 
   getMessage(): string {
     if (this.isOptionalEnding) {
-      return "Si vous pensez qu'il reste encore des choses à faire, vous pouvez continuer le jeu.";
+      return "Vous avez retrouvé Antoine, bravo ! Est-ce la fin ou bien il reste des choses à faire, des personnes à appeler ?";
     }
-    return "Vous avez terminé le jeu ! Merci d'avoir joué.";
+    return "Vous avez terminé le jeu, bravo !";
   }
 
   onContinue(): void {
