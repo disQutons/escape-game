@@ -1,3 +1,17 @@
 <div class="stories-list">
-  <app-story-circle *ngFor="let story of stories" [story]="story"></app-story-circle>
+  <app-story-circle
+    *ngFor="let story of stories"
+    [story]="story"
+    (storyClicked)="displayStory($event)"
+    [size]="80"
+    [showAvatarCircle]="true"
+  >
+  </app-story-circle>
 </div>
+
+<app-story-display
+  *ngIf="activeStory"
+  [story]="activeStory"
+  (close)="closeStory()"
+>
+</app-story-display>
