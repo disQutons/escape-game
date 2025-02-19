@@ -64,6 +64,16 @@ export class PhoneService {
       requiredApps: ['discord'],
       winCondition: 1
     },
+    {
+      id: 7,
+      name: 'Tennis',
+      number: '0240859674',
+      avatar: 'assets/avatars/profil_default.png',
+      audioFile: 'assets/audio/club.mp3',
+      pickupDelay: 2,
+      requiredApps: ['discord'],
+      winCondition: 1
+    },
   ];
   
 
