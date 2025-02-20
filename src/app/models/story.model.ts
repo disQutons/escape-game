@@ -4,4 +4,5 @@ export interface User {
   icon: string;
   createdAt: string;
   status?: 'online' | 'offline' | 'idle' | 'dnd';
+  storyImage?: string;
 }

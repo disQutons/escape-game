@@ -1,9 +1,15 @@
-<div class="story">
-  <div class="{{showAvatarCircle?'story-circle':'story-circle-no-color'}}"  [ngStyle]="{'height':size+'px','width':size+'px'}">
+<div class="story" (click)="onClick()">
+  <div
+    [ngClass]="showAvatarCircle ? 'story-circle' : 'story-circle-no-color'"
+    [ngStyle]="{ height: size + 'px', width: size + 'px' }"
+  >
     <div class="story-circle-inner">
-      <img [lazyLoad]="story?.icon ?? ''" src='assets/pictures/story/giphy.webp' alt="Story Image" class="story-image"
-           [ngStyle]="{'height':size*0.9+'px','width':size*0.9+'px'}"
-           height="512" width="512">
+      <img
+        [src]="story?.icon || 'assets/pictures/story/giphy.webp'"
+        alt="Story Image"
+        class="story-image"
+        [ngStyle]="{ height: size * 0.9 + 'px', width: size * 0.9 + 'px' }"
+      />
     </div>
   </div>
 </div>

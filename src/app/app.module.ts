@@ -39,6 +39,7 @@ import { PhoneComponent } from './pages/phone/phone.component';
 import { CodeUnlockComponent } from './component/app-grid/code-unlock.component';
 import { GameEndModalComponent } from './component/game-end-modal/game-end-modal.component';
 import { SharedModule } from './shared.module';
+import { StoryDisplayComponent } from './pages/instagram/story-display/story-display.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { SharedModule } from './shared.module';
     MessagesComponent,
     PhoneComponent,
     CodeUnlockComponent,
-    GameEndModalComponent
+    GameEndModalComponent,
+    StoryDisplayComponent
   ],
   imports: [
     BrowserModule,
