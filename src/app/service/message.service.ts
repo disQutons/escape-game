@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Message, MessageContent } from '../models/message.model';
+import { AnalyticsService } from './analytics.service';
 
 @Injectable({
   providedIn: 'root'
@@ -381,15 +382,32 @@ export class MessageService {
     }
   ];
 
+  constructor(private analyticsService: AnalyticsService) {}
+
   getInstagramMessages(): Observable<Message[]> {
+    this.analyticsService.logAction('view_messages', {
+      platform: 'instagram',
+      count: this.instagramMessages.length
+    }).subscribe();
+    
     return of(this.instagramMessages);
   }
 
   getDiscordMessages(): Observable<Message[]> {
+    this.analyticsService.logAction('view_messages', {
+      platform: 'discord',
+      count: this.discordMessages.length
+    }).subscribe();
+    
     return of(this.discordMessages);
   }
 
   getMessages(): Observable<Message[]> {
+    this.analyticsService.logAction('view_messages', {
+      platform: 'generic',
+      count: this.messages.length
+    }).subscribe();
+    
     return of(this.messages);
   }
 
@@ -403,6 +421,14 @@ export class MessageService {
   }
 
   sendMessage(messageId: number, content: string, type: 'text' | 'image', date: string, platform: 'instagram' | 'discord' | 'generic' = 'generic'): Observable<string | null> {
+    this.analyticsService.logAction('send_message', {
+      platform: platform,
+      message_id: messageId,
+      content_type: type,
+      content_length: content.length,
+      is_hint_request: this.isHintRequest(content)
+    }).subscribe();
+    
     let targetMessages: Message[];
     switch (platform) {
       case 'instagram':
@@ -422,12 +448,41 @@ export class MessageService {
       // Check for hints
       const hint = this.checkForHint(content, platform);
       if (hint) {
+        this.analyticsService.logAction('hint_provided', {
+          platform: platform,
+          message_id: messageId,
+          hint_request: content,
+          hint_type: this.getHintType(content),
+          hint_topic: this.getHintTopic(content)
+        }).subscribe();
+        
         const hintMessage: MessageContent = { type: 'text', content: hint, sent: false, date: new Date().toISOString() };
         message.conversation.push(hintMessage);
         return of(hint);
       }
     }
     return of(null);
+  }
+
+  private isHintRequest(input: string): boolean {
+    return this.getHintKey(input) !== null;
+  }
+  
+  private getHintType(input: string): string {
+    const parts = input.toLowerCase().trim().split(' ');
+    if (parts.includes('1')) return 'level_1';
+    if (parts.includes('2')) return 'level_2';
+    if (parts.includes('solution')) return 'solution';
+    return 'unknown';
+  }
+  
+  private getHintTopic(input: string): string {
+    const hintKey = this.getHintKey(input);
+    if (!hintKey) return 'unknown';
+    
+    const parts = hintKey.split(' ');
+    // Return the topic part (the non-number, non-solution part)
+    return parts.find(part => !['1', '2', 'solution'].includes(part)) || 'unknown';
   }
 
   private getHintKey(input: string): string | null {
@@ -478,6 +533,10 @@ export class MessageService {
   }
 
   getMessagesByPlatform(platform: 'instagram' | 'discord' | 'generic'): Observable<Message[]> {
+    this.analyticsService.logAction('view_messages_by_platform', {
+      platform: platform
+    }).subscribe();
+    
     switch (platform) {
       case 'instagram':
         return this.getInstagramMessages();
@@ -485,6 +544,30 @@ export class MessageService {
         return this.getDiscordMessages();
       default:
         return this.getMessages();
+    }
+  }
+  
+  viewConversation(messageId: number, platform: 'instagram' | 'discord' | 'generic') {
+    let targetMessage: Message | undefined;
+    
+    switch (platform) {
+      case 'instagram':
+        targetMessage = this.instagramMessages.find(m => m.id === messageId);
+        break;
+      case 'discord':
+        targetMessage = this.discordMessages.find(m => m.id === messageId);
+        break;
+      default:
+        targetMessage = this.messages.find(m => m.id === messageId);
+    }
+    
+    if (targetMessage) {
+      this.analyticsService.logAction('view_conversation', {
+        platform: platform,
+        message_id: messageId,
+        contact_name: targetMessage.name,
+        message_count: targetMessage.conversation.length
+      }).subscribe();
     }
   }
 }

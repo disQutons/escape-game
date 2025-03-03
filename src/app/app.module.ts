@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -40,6 +41,11 @@ import { CodeUnlockComponent } from './component/app-grid/code-unlock.component'
 import { GameEndModalComponent } from './component/game-end-modal/game-end-modal.component';
 import { SharedModule } from './shared.module';
 import { StoryDisplayComponent } from './pages/instagram/story-display/story-display.component';
+import { ConfigService } from './service/config.service';
+
+export function initializeApp(configService: ConfigService) {
+  return () => configService.loadConfig();
+}
 
 @NgModule({
   declarations: [
@@ -86,7 +92,8 @@ import { StoryDisplayComponent } from './pages/instagram/story-display/story-dis
     LightboxModule,
     DiscordModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [
     {
@@ -96,6 +103,12 @@ import { StoryDisplayComponent } from './pages/instagram/story-display/story-dis
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [ConfigService],
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

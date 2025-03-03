@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { App } from '../models/app.model';
+import { AnalyticsService } from './analytics.service';
 
 type AppCodes = {
   [key in 'instagram' | 'discord']: string[];
@@ -16,7 +17,7 @@ export class AppService {
 
   private unlockedApps: Set<string> = new Set();
 
-  constructor() {}
+  constructor(private analyticsService: AnalyticsService) {}
 
   getApps(): App[] {
     return [
@@ -52,11 +53,22 @@ export class AppService {
 
   checkCode(app: 'instagram' | 'discord', code: string): boolean {
     const validCodes = this.APP_CODES[app];
-    return validCodes ? validCodes.includes(code) : false;
+    const isValid = validCodes ? validCodes.includes(code) : false;
+    this.analyticsService.logAction('code_check', {
+      app: app,
+      code: code,
+      valid: isValid
+    }).subscribe();
+    
+    return isValid;
   }
 
   unlockApp(app: string): void {
     this.unlockedApps.add(app);
+    this.analyticsService.logAction('app_unlock', {
+      app: app,
+      method: 'code'
+    }).subscribe();
   }
 
   isAppUnlocked(app: string): boolean {
