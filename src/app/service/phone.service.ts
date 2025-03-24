@@ -4,6 +4,7 @@ import { PhoneContact, CallState, CallHistory } from '../pages/phone/phone.model
 import { AppService } from './app.service';
 import { GameService } from './game.service';
 import { MusicService } from './music.service';
+import { AnalyticsService } from './analytics.service';
 
 @Injectable({
   providedIn: 'root',
@@ -103,7 +104,8 @@ export class PhoneService {
     private appService: AppService,
     private gameService: GameService,
     @Inject(MusicService)
-    private musicService: MusicService
+    private musicService: MusicService,
+    private analyticsService: AnalyticsService
   ) {}
 
   /**
@@ -132,6 +134,11 @@ export class PhoneService {
     this.stopTimer();
     this.clearCallTimeout();
     this.stopRingtone();
+    
+    this.analyticsService.logAction('call_initiated', {
+      number: number,
+      is_valid_format: this.validateFrenchPhoneNumber(number)
+    }).subscribe();
   
     this.wasMusicPlaying = this.musicService.isPlaying();
     if (this.wasMusicPlaying) {
@@ -155,10 +162,22 @@ export class PhoneService {
       const contact = accessibleContacts[0];
       this.startCall(contact, false, number);
     } else if (matchingContacts.length > 0) {
+      // Contact existe mais n'est pas accessible (apps requises non débloquées)
+      this.analyticsService.logAction('call_blocked', {
+        number: number,
+        contact_name: matchingContacts[0].name,
+        required_apps: matchingContacts[0].requiredApps
+      }).subscribe();
       this.startUnknownCall(number);
     } else if (number === this.endingNumber) {
+      this.analyticsService.logAction('ending_number_called', {
+        number: number
+      }).subscribe();
       this.startCall(undefined, true, number);
     } else {
+      this.analyticsService.logAction('unknown_number_called', {
+        number: number
+      }).subscribe();
       this.startUnknownCall(number);
     }
   }
@@ -255,6 +274,14 @@ export class PhoneService {
           currentDuration: 0,
         });
 
+        this.analyticsService.logAction('call_connected', {
+          number: dialedNumber,
+          contact_name: contact?.name || 'Numéro spécial',
+          is_ending_call: isEndingNumber,
+          has_win_condition: contact?.winCondition ? true : false,
+          win_condition: contact?.winCondition
+        }).subscribe();
+
         if (contact?.winCondition) {
           this.gameService.checkCall(contact.winCondition);
         }
@@ -280,6 +307,10 @@ export class PhoneService {
    * Plays error audio and updates call state
    */
   private handleInvalidNumber(): void {
+    this.analyticsService.logAction('invalid_number_called', {
+      error_reason: 'format_invalid'
+    }).subscribe();
+    
     this.playAudio(this.invalidNumberAudio);
     this.callStateSubject.next({
       isActive: true,
@@ -350,6 +381,15 @@ export class PhoneService {
 
       if (numberToLog && duration >= 0 && currentState.status !== 'error') {
         this.addToHistory(numberToLog, duration);
+        
+        this.analyticsService.logAction('call_ended', {
+          number: numberToLog,
+          duration: duration,
+          status: currentState.status,
+          contact_name: currentState.contact?.name || 'Inconnu',
+          was_connected: currentState.status === 'connected',
+          was_ending_call: currentState.isGameEnding || false
+        }).subscribe();
       }
     }
     

@@ -24,6 +24,14 @@ jobs:
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
+      - name: Create config.json from secrets
+        run: |
+          mkdir -p src/assets
+          echo '{
+            "apiUrl": "${{ secrets.API_URL }}",
+            "apiKey": "${{ secrets.API_KEY }}"
+          }' > src/assets/config.json
+
       - name: Build
         run: ng build --configuration=production --base-href="/escape-game/"
 
