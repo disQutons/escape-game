@@ -24,7 +24,7 @@ export class PhoneService {
       id: 2,
       name: 'Josh',
       number: '0240123578',
-      avatar: 'assets/picture/story/josh_profil.jpg',
+      avatar: 'assets/pictures/story/josh_profil.jpg',
       audioFile: 'assets/audio/poissonnerie.mp3',
       pickupDelay: 3
     },
@@ -32,7 +32,7 @@ export class PhoneService {
       id: 3,
       name: 'Josh',
       number: '0240123578',
-      avatar: 'assets/picture/story/josh_profil.jpg',
+      avatar: 'assets/pictures/story/josh_profil.jpg',
       audioFile: 'assets/audio/josh-antoine.mp3',
       pickupDelay: 3,
       requiredApps: ['discord'],
