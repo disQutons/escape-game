@@ -15,6 +15,7 @@ Les images et musiques utilisées sont sous cette même licence. Les images sont
 
 ## Label
 Cet outil a obtenu le Label Chaire UNESCO Santé sexuelle & Droits humains.
+
 ![Label Chaire UNESCO Santé sexuelle & Droits humains](https://www.disqutons.fr/wp-content/uploads/Label.png)
 
 ## Première version
