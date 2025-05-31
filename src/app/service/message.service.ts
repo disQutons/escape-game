@@ -388,7 +388,7 @@ export class MessageService {
         { type: 'text', content: 'Envoyez "solution" et le nom du document pour une prise en charge complète par nos service', sent: true, date: '2024-06-12T10:20:30Z' },
       
       ]
-    }
+    },
     {
       id: 2,
       user: {
@@ -405,7 +405,7 @@ export class MessageService {
         { type: 'text', content: 'Sais-tu à quelle heure tu vas rentrer ?', sent: true, date: '2025-02-26T12:46:15Z' },
         { type: 'text', content: 'Antoine, où es-tu ??', sent: true, date: '2025-02-26T14:22:11Z' },
       ]
-    }
+    },
     {
       id: 3,
       user: {
@@ -414,7 +414,7 @@ export class MessageService {
         icon: 'assets/avatars/profil_default.png',
         createdAt: '2024-06-12T10:20:30Z'
       },
-      name: 'Maman',
+      name: 'Livraison UPA',
       avatar: 'assets/avatars/profil_default.png',
       conversation: [
         { type: 'text', content: 'Votre colis arrive ce matin entre 8h et 18h. La caverne des jeux vous remercie encore pour votre achat.', sent: true, date: '2024-12-24T10:20:30Z' },     
