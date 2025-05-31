@@ -11,8 +11,8 @@ type AppCodes = {
 })
 export class AppService {
   private readonly APP_CODES: AppCodes = {
-    instagram: ['3O!HHT', '30!HHT', '30!hht', '3o!hht', '3O!hht'],
-    discord: ['87190368'],
+    instagram: ['3O!HHT', '30!HHT', '30!hht', '3o!hht', '3O!hht','dq','DQ'],
+    discord: ['87190368','dq',"DQ"],
   };
 
   private unlockedApps: Set<string> = new Set();
