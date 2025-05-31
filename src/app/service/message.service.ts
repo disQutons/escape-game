@@ -376,17 +376,48 @@ export class MessageService {
       user: {
         id: 1,
         username: '30120',
-        icon: 'src/assets/avatars/profil_default.png',
+        icon: 'assets/avatars/profil_default.png',
         createdAt: '2024-06-12T10:20:30Z'
       },
       name: '30120',
-      avatar: 'src/assets/avatars/profil_default.png',
+      avatar: 'assets/avatars/profil_default.png',
       conversation: [
         { type: 'text', content: 'Le service client disQutons reste à votre service. En cas de besoin, envoyez-nous un message avec le document qui bloque', sent: true, date: '2024-06-12T10:20:30Z' },
-        { type: 'text', content: 'Envoyez le chiffre "1" et le nom du document pour un premier coup de main', sent: true, date: '2024-06-12T10:20:30Z' },
+        { type: 'text', content: 'Envoyez le chiffre "1" et le nom du document pour un premier coup de main. Par exemple 1 instagram.', sent: true, date: '2024-06-12T10:20:30Z' },
         { type: 'text', content: 'Envoyez le chiffre "2" et le nom du document pour une aide plus précise', sent: true, date: '2024-06-12T10:20:30Z' },
         { type: 'text', content: 'Envoyez "solution" et le nom du document pour une prise en charge complète par nos service', sent: true, date: '2024-06-12T10:20:30Z' },
       
+      ]
+    }
+    {
+      id: 2,
+      user: {
+        id: 2,
+        username: 'Maman',
+        icon: 'assets/avatars/profil_default.png',
+        createdAt: '2024-12-20T10:20:30Z'
+      },
+      name: 'Maman',
+      avatar: 'assets/avatars/profil_default.png',
+      conversation: [
+        { type: 'text', content: 'Est-ce que tu voudras venir au ciné avec moi la semaine prochaine ?', sent: true, date: '2024-12-20T10:20:30Z' },
+        { type: 'text', content: 'Avec plaisir ouais, je rentre dans 10 min', sent: false, date: '2024-12-20T10:25:32Z' },
+        { type: 'text', content: 'Sais-tu à quelle heure tu vas rentrer ?', sent: true, date: '2025-02-26T12:46:15Z' },
+        { type: 'text', content: 'Antoine, où es-tu ??', sent: true, date: '2025-02-26T14:22:11Z' },
+      ]
+    }
+    {
+      id: 3,
+      user: {
+        id: 3,
+        username: 'Livraison UPA',
+        icon: 'assets/avatars/profil_default.png',
+        createdAt: '2024-06-12T10:20:30Z'
+      },
+      name: 'Maman',
+      avatar: 'assets/avatars/profil_default.png',
+      conversation: [
+        { type: 'text', content: 'Votre colis arrive ce matin entre 8h et 18h. La caverne des jeux vous remercie encore pour votre achat.', sent: true, date: '2024-12-24T10:20:30Z' },     
       ]
     }
   ];
