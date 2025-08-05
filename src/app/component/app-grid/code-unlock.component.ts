@@ -44,9 +44,9 @@ export class CodeUnlockComponent implements OnInit {
     }
   }
 
-  togglePasswordVisibility(): void {
+  /*togglePasswordVisibility(): void {
     this.hideCode = !this.hideCode;
-  }
+  }*/
 
   onCloseClick(event: Event): void {
     event.stopPropagation();
