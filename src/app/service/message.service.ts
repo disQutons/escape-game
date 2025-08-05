@@ -343,6 +343,17 @@ export class MessageService {
         { type: 'text', content: 'Ouais et puis vu comme ça picolait, c’était pas trop dur de choper !!', sent: false, date: '2024-09-24T17:09:30Z' },
         { type: 'text', content: 'Je pars en soirée, à plus', sent: false, date: '2024-09-24T17:11:00Z' },
 
+        { type: 'text', content: 'Aymeric, j’ai une question, un peu gênante.', sent: true, date: '2024-10-02T20:05:30Z' },
+        { type: 'text', content: 'Dis-moi t’inquiète !', sent: false, date: '2024-10-03T16:25:30Z' },
+        { type: 'text', content: 'Je comprends pas où se trouve le clitoris chez une meuf...', sent: true, date: '2024-10-03T16:26:30Z' },
+        { type: 'text', content: 'Oh !', sent: false, date: '2024-10-03T16:35:30Z' },
+        { type: 'text', content: 'En fait, au niveau de la vulve, t’as l’entrée du vagin et au dessus t’as une sorte de petit bourrelet qui dépasse, bah c’est ça.', sent: false, date: '2024-10-03T16:37:30Z' },
+        { type: 'text', content: 'Ah ouais ok, c’est juste en dessous des poils en fait. J’étais pas sûr que ça soit ça.', sent: true, date: '2024-10-03T16:40:30Z' },
+        { type: 'text', content: 'Et en vrai, faut pas que ça soit gênant. C’est normal de se poser ces questions. Personne ne nous donne l’info, ni en cours, ni nos potes qui n’y connaissent rien...', sent: false, date: '2024-10-03T16:42:30Z' },
+        { type: 'text', content: 'Donc n’hésite pas si tu as encore besoin, même si c’est gênant. D’ailleurs tu devrais pouvoir en parler avec ta meuf directement, vous faîtes équipe normalement.', sent: false, date: '2024-10-03T16:44:30Z' },
+        { type: 'text', content: 'Merci beaucoup, je te dirai', sent: true, date: '2024-10-03T16:47:30Z' },
+
+              
         { type: 'text', content: 'Est-ce que tu rentres pendant les vacances ?', sent: true, date: '2024-10-10T14:30:00Z' },
         { type: 'text', content: 'Non désolé, il faut que je bosse un peu !', sent: false, date: '2024-10-10T14:32:00Z' },
         { type: 'text', content: 'Je rigole, c’est pas pour bosser mais on va en profiter avec des potes pour aller à la montagne', sent: false, date: '2024-10-10T14:33:30Z' },
