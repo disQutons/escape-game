@@ -14,7 +14,7 @@ export class CodeUnlockComponent implements OnInit {
 
   unlockForm: FormGroup;
   error = false;
-  hideCode = true;
+  hideCode = false;
 
   constructor(private appService: AppService) {
     this.unlockForm = new FormGroup({
