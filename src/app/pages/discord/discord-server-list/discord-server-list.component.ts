@@ -18,12 +18,12 @@ export class DiscordServerListComponent implements OnInit {
 
   ngOnInit() {
     this.servers = [
-      { icon: 'https://api.dicebear.com/9.x/icons/svg?seed=Vivian', name: 'Server 1' },
+      //{ icon: 'https://api.dicebear.com/9.x/icons/svg?seed=Vivian', name: 'Server 1' },
       { icon: 'https://api.dicebear.com/9.x/shapes/svg?seed=Nolan', name: 'Server 2' },
       { icon: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Katherine', name: 'Server 3' },
       { icon: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Sophia', name: 'Server 4' },
       { icon: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Wyatt', name: 'Server 5' },
-      { icon: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Katherine', name: 'Server 6' },
+      //{ icon: 'https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Katherine', name: 'Server 6' },
     ];
   }
 
