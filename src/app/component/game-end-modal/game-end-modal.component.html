@@ -15,10 +15,15 @@
           *ngIf="isOptionalEnding"
           class="button button-primary"
           (click)="onContinue()"
+          [disabled]="buttonsDisabled"
         >
-          Continuer
+          Continuer ({{ timeLeft }}s)
         </button>
-        <button class="button button-secondary" (click)="onFinish()">
+        <button
+          class="button button-secondary"
+          (click)="onFinish()"
+          [disabled]="buttonsDisabled"
+          >
           {{ isOptionalEnding ? "Terminer" : "OK" }}
         </button>
       </div>
