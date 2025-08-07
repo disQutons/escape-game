@@ -3,6 +3,8 @@
 L'association disQutons a développé un Escape Game destiné aux collégiens et lycéens, en collaboration avec La Sauce Ludique, une association nantaise spécialisée dans la création de jeux. Ce jeu immersif est conçu pour être utilisé dans des collèges, lycées et autres structures pour jeunes.
 
 L'Escape Game traite de sujets cruciaux tels que les cyberviolences et les injonctions de genre. Après chaque session de jeu, un échange est prévu avec les jeunes participants, animé par un membre du personnel éducatif ou un représentant de l'association disQutons.
+Le jeu est compatible pour être considéré comme une séance EVARS, les trois champs étant bien respectés.
+Pour en savoir plus et accéder à la séance pédagogique, [rendez-vous sur notre site internet](https://www.disqutons.fr/le-telephone-dantoine/).
 
 ## Licence
 CC BY-NC-SA 4.0
