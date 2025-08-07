@@ -13,6 +13,11 @@ Pas d’utilisation commerciale : Vous ne pouvez en aucun cas vendre l’outil, 
 Partage dans les mêmes conditions : Vous pouvez partager la nouvelle version de votre outil, auprès de vos partenaires, sur votre site internet, vos réseaux… L’utilisation faite par les tiers via ces partages devront simplement respecter les mêmes conditions que vous (nous citer, et ne pas en faire d’utilisation commerciale).
 Les images et musiques utilisées sont sous cette même licence. Les images sont de [Laure Gaillardin](https://lauregaillardin.fr/) et la musique de [Sébastien Ossona](https://www.sebastienossona.com/).
 
+## Label
+Cet outil a obtenu le Label Chaire UNESCO Santé sexuelle & Droits humains.
+
+![Label Chaire UNESCO Santé sexuelle & Droits humains](https://www.disqutons.fr/wp-content/uploads/Label.png)
+
 ## Première version
 
 Ce projet représente la version initiale de l'application, développée en mode statique avec le framework Angular. Cette version a pour objectif de simuler les fonctionnalités de l'application finale et de servir de base pour les tests et l'évaluation des interactions utilisateur. Elle permet de visualiser l'interface utilisateur et de simuler les flux de navigation, sans intégration avec une base de données ou des services backend. L'application est accessible en ligne à l'adresse suivante : [https://disqutons.github.io/escape-game/#/.](https://disqutons.github.io/escape-game/#/)
