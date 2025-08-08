@@ -14,7 +14,7 @@ export class CodeUnlockComponent implements OnInit {
 
   unlockForm: FormGroup;
   error = false;
-  hideCode = true;
+  hideCode = false;
 
   constructor(private appService: AppService) {
     this.unlockForm = new FormGroup({
@@ -44,9 +44,9 @@ export class CodeUnlockComponent implements OnInit {
     }
   }
 
-  togglePasswordVisibility(): void {
+  /*togglePasswordVisibility(): void {
     this.hideCode = !this.hideCode;
-  }
+  }*/
 
   onCloseClick(event: Event): void {
     event.stopPropagation();
