@@ -25,6 +25,12 @@ export class MessageService {
       '1 instagram': 'Vous devriez poser la carte de transport sur le carnet de correspondance.',
       '2 instagram': 'Il faut prendre tous les éléments du code Instagram et les faire correspondre en suivant le chemin de la carte de transport.',
       'solution instagram': 'Le code pour accéder à Instagram est le suivant : 3O!HHT',
+      '1 instagrame': 'Vous devriez poser la carte de transport sur le carnet de correspondance.',
+      '2 instagrame': 'Il faut prendre tous les éléments du code Instagram et les faire correspondre en suivant le chemin de la carte de transport.',
+      'solution instagrame': 'Le code pour accéder à Instagram est le suivant : 3O!HHT',
+      '1 insta': 'Vous devriez poser la carte de transport sur le carnet de correspondance.',
+      '2 insta': 'Il faut prendre tous les éléments du code Instagram et les faire correspondre en suivant le chemin de la carte de transport.',
+      'solution insta': 'Le code pour accéder à Instagram est le suivant : 3O!HHT',
       '1 carnet': 'Vous devriez poser la carte de transport sur le carnet de correspondance.',
       '2 carnet': 'Il faut prendre tous les éléments du code Instagram et les faire correspondre en suivant le chemin de la carte de transport.',
       'solution carnet': 'Le code pour accéder à Instagram est le suivant : 3O!HHT',
@@ -49,6 +55,9 @@ export class MessageService {
       '1 discord': 'La carte de tennis pourra vous aider avec l\'exercice 2 du contrôle de Maths',
       '2 discord': 'Il faut inverser chaque numéro par rapport aux couleurs des balles de tennis, présentes sur la carte de tennis. Par exemple 1 deviendra 8 et 8 deviendra 1.',
       'solution discord': 'Le code pour accéder à Discord est le suivant : 87190368',
+      '1 discorde': 'La carte de tennis pourra vous aider avec l\'exercice 2 du contrôle de Maths',
+      '2 discorde': 'Il faut inverser chaque numéro par rapport aux couleurs des balles de tennis, présentes sur la carte de tennis. Par exemple 1 deviendra 8 et 8 deviendra 1.',
+      'solution discorde': 'Le code pour accéder à Discord est le suivant : 87190368',
       '1 tennis': 'La carte de tennis pourra vous aider avec l\'exercice 2 du contrôle de Maths',
       '2 tennis': 'Il faut inverser chaque numéro par rapport aux couleurs des balles de tennis, présentes sur la carte de tennis. Par exemple 1 deviendra 8 et 8 deviendra 1.',
       'solution tennis': 'Le code pour accéder à Discord est le suivant : 87190368',
@@ -334,6 +343,17 @@ export class MessageService {
         { type: 'text', content: 'Ouais et puis vu comme ça picolait, c’était pas trop dur de choper !!', sent: false, date: '2024-09-24T17:09:30Z' },
         { type: 'text', content: 'Je pars en soirée, à plus', sent: false, date: '2024-09-24T17:11:00Z' },
 
+        { type: 'text', content: 'Aymeric, j’ai une question, un peu gênante.', sent: true, date: '2024-10-02T20:05:30Z' },
+        { type: 'text', content: 'Dis-moi t’inquiète !', sent: false, date: '2024-10-03T16:25:30Z' },
+        { type: 'text', content: 'Je comprends pas où se trouve le clitoris chez une meuf...', sent: true, date: '2024-10-03T16:26:30Z' },
+        { type: 'text', content: 'Oh !', sent: false, date: '2024-10-03T16:35:30Z' },
+        { type: 'text', content: 'En fait, au niveau de la vulve, t’as l’entrée du vagin et au dessus t’as une sorte de petit bourrelet qui dépasse, bah c’est ça.', sent: false, date: '2024-10-03T16:37:30Z' },
+        { type: 'text', content: 'Ah ouais ok, c’est juste en dessous des poils en fait. J’étais pas sûr que ça soit ça.', sent: true, date: '2024-10-03T16:40:30Z' },
+        { type: 'text', content: 'Et en vrai, faut pas que ça soit gênant. C’est normal de se poser ces questions. Personne ne nous donne l’info, ni en cours, ni nos potes qui n’y connaissent rien...', sent: false, date: '2024-10-03T16:42:30Z' },
+        { type: 'text', content: 'Donc n’hésite pas si tu as encore besoin, même si c’est gênant. D’ailleurs tu devrais pouvoir en parler avec ta meuf directement, vous faîtes équipe normalement.', sent: false, date: '2024-10-03T16:44:30Z' },
+        { type: 'text', content: 'Merci beaucoup, je te dirai', sent: true, date: '2024-10-03T16:47:30Z' },
+
+              
         { type: 'text', content: 'Est-ce que tu rentres pendant les vacances ?', sent: true, date: '2024-10-10T14:30:00Z' },
         { type: 'text', content: 'Non désolé, il faut que je bosse un peu !', sent: false, date: '2024-10-10T14:32:00Z' },
         { type: 'text', content: 'Je rigole, c’est pas pour bosser mais on va en profiter avec des potes pour aller à la montagne', sent: false, date: '2024-10-10T14:33:30Z' },
@@ -367,17 +387,48 @@ export class MessageService {
       user: {
         id: 1,
         username: '30120',
-        icon: 'src/assets/avatars/profil_default.png',
+        icon: 'assets/avatars/profil_default.png',
         createdAt: '2024-06-12T10:20:30Z'
       },
       name: '30120',
-      avatar: 'src/assets/avatars/profil_default.png',
+      avatar: 'assets/avatars/profil_default.png',
       conversation: [
         { type: 'text', content: 'Le service client disQutons reste à votre service. En cas de besoin, envoyez-nous un message avec le document qui bloque', sent: true, date: '2024-06-12T10:20:30Z' },
-        { type: 'text', content: 'Envoyez le chiffre "1" et le nom du document pour un premier coup de main', sent: true, date: '2024-06-12T10:20:30Z' },
+        { type: 'text', content: 'Envoyez le chiffre "1" et le nom du document pour un premier coup de main. Par exemple 1 instagram.', sent: true, date: '2024-06-12T10:20:30Z' },
         { type: 'text', content: 'Envoyez le chiffre "2" et le nom du document pour une aide plus précise', sent: true, date: '2024-06-12T10:20:30Z' },
         { type: 'text', content: 'Envoyez "solution" et le nom du document pour une prise en charge complète par nos service', sent: true, date: '2024-06-12T10:20:30Z' },
       
+      ]
+    },
+    {
+      id: 2,
+      user: {
+        id: 2,
+        username: 'Maman',
+        icon: 'assets/avatars/profil_default.png',
+        createdAt: '2024-12-20T10:20:30Z'
+      },
+      name: 'Maman',
+      avatar: 'assets/avatars/profil_default.png',
+      conversation: [
+        { type: 'text', content: 'Est-ce que tu voudras venir au ciné avec moi la semaine prochaine ?', sent: true, date: '2024-12-20T10:20:30Z' },
+        { type: 'text', content: 'Avec plaisir ouais, je rentre dans 10 min', sent: false, date: '2024-12-20T10:25:32Z' },
+        { type: 'text', content: 'Sais-tu à quelle heure tu vas rentrer ?', sent: true, date: '2025-02-26T12:46:15Z' },
+        { type: 'text', content: 'Antoine, où es-tu ??', sent: true, date: '2025-02-26T14:22:11Z' },
+      ]
+    },
+    {
+      id: 3,
+      user: {
+        id: 3,
+        username: 'Livraison UPA',
+        icon: 'assets/avatars/profil_default.png',
+        createdAt: '2024-06-12T10:20:30Z'
+      },
+      name: 'Livraison UPA',
+      avatar: 'assets/avatars/profil_default.png',
+      conversation: [
+        { type: 'text', content: 'Votre colis arrive ce matin entre 8h et 18h. La caverne des jeux vous remercie encore pour votre achat.', sent: true, date: '2024-12-24T10:20:30Z' },     
       ]
     }
   ];

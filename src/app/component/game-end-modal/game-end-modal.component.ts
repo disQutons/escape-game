@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ElementRef, ViewChild, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
 import { ConfettiService } from 'src/app/service/confetti.service';
 
 @Component({
@@ -12,9 +12,28 @@ export class GameEndModalComponent implements AfterViewInit, OnDestroy {
   @Output() finish = new EventEmitter<void>();
   @ViewChild('confettiCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
-  private confettiInitialized = false;
+  buttonsDisabled: boolean = true; //FBR
+  timeLeft: number = 40; //FBR
+  private timerInterval: any;
 
+  private confettiInitialized = false;
   constructor(private confettiService: ConfettiService) {}
+
+  ngOnInit() { //FBR
+    this.enableButtonsAfterDelay();
+  }
+  
+  enableButtonsAfterDelay() { //FBR
+    this.timerInterval = setInterval(() => {
+      if (this.timeLeft > 1) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 0;
+        this.buttonsDisabled = false;
+        clearInterval(this.timerInterval);
+      }
+    }, 1000); // Mise à jour chaque seconde
+  }
 
   ngAfterViewInit() {
     if (!this.isOptionalEnding) {
@@ -37,7 +56,7 @@ export class GameEndModalComponent implements AfterViewInit, OnDestroy {
 
   getMessage(): string {
     if (this.isOptionalEnding) {
-      return "Vous avez retrouvé Antoine, bravo ! Est-ce la fin ou bien il reste des choses à faire, des personnes à appeler ?";
+      return "Vous avez retrouvé Antoine, bravo ! Est-ce la fin ou bien il reste des choses à faire, des personnes à appeler ? Si vous terminez maintenant, le jeu sera remis à zéro.";
     }
     return "Vous avez terminé le jeu, bravo !";
   }

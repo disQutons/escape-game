@@ -72,7 +72,7 @@ export class PhoneService {
       avatar: 'assets/avatars/profil_default.png',
       audioFile: 'assets/audio/club.mp3',
       pickupDelay: 2,
-      requiredApps: ['discord'],
+      //requiredApps: ['discord'],
       winCondition: 1
     },
   ];
