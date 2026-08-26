@@ -7,13 +7,8 @@ Le jeu est compatible pour être considéré comme une séance EVARS, les trois 
 Pour en savoir plus et accéder à la séance pédagogique, [rendez-vous sur notre site internet](https://www.disqutons.fr/le-telephone-dantoine/).
 
 ## Licence
-CC BY-NC-SA 4.0
-Pour rendre ce sujet le plus accessible possible, nous avons choisi d’en assouplir la propriété intellectuelle.
-
-Attribution : Vous pouvez librement cet outil, à la seule condition de nous citer dans vos communications. Vous n’avez pas besoin de notre aval, et ça ne signifie pas que nous sommes en accord ou responsable de l’utilisation que vous en faites.
-Pas d’utilisation commerciale : Vous ne pouvez en aucun cas vendre l’outil, sous quelque forme que ce soit (produit ou service). Vous pouvez cependant le compléter, modifier, reproduire et le diffuser. Tout faire, sauf le vendre !
-Partage dans les mêmes conditions : Vous pouvez partager la nouvelle version de votre outil, auprès de vos partenaires, sur votre site internet, vos réseaux… L’utilisation faite par les tiers via ces partages devront simplement respecter les mêmes conditions que vous (nous citer, et ne pas en faire d’utilisation commerciale).
-Les images et musiques utilisées sont sous cette même licence. Les images sont de [Laure Gaillardin](https://lauregaillardin.fr/) et la musique de [Sébastien Ossona](https://www.sebastienossona.com/).
+CC BY-NC-SA 4.0 // PolyForm Noncommercial License 1.0.0
+https://github.com/disQutons/escape-game/tree/main?tab=License-1-ov-file#polyform-noncommercial-license-100
 
 ## Label
 Cet outil a obtenu le Label Chaire UNESCO Santé sexuelle & Droits humains.
